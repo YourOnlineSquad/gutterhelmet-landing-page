@@ -1,103 +1,222 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gutter Helmet NW Ohio | Never Clean Your Gutters Again</title>
+    <title>Gutter Helmet NW Ohio | High-Tech Gutter Protection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
     <style>
-        /* Basic Reset & Fonts */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { color: #333; line-height: 1.6; background-color: #f9f9f9; }
+        /* === RESET & BASE STYLES === */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: #0b0f19; color: #e2e8f0; line-height: 1.6; overflow-x: hidden; }
         
-        /* Header */
-        header { background-color: #fff; padding: 20px; text-align: center; border-bottom: 3px solid #0056b3; }
-        .dealer-badge { font-size: 0.9em; color: #555; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; }
-        .dealer-badge strong { color: #0056b3; }
+        /* === FLOATING & GLOWING ANIMATIONS === */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        @keyframes glow {
+            0% { box-shadow: 0 0 15px rgba(0, 210, 255, 0.2); }
+            50% { box-shadow: 0 0 30px rgba(0, 210, 255, 0.6); }
+            100% { box-shadow: 0 0 15px rgba(0, 210, 255, 0.2); }
+        }
 
-        /* Hero Section */
-        .hero { background-color: #002244; color: #fff; padding: 60px 20px; display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; }
-        .hero-content { max-width: 500px; }
-        .hero-content h1 { font-size: 2.8em; margin-bottom: 15px; line-height: 1.2; color: #ffab00; }
-        .hero-content p { font-size: 1.2em; margin-bottom: 25px; }
-        .benefits-list { list-style: none; margin-bottom: 30px; }
-        .benefits-list li { margin-bottom: 15px; font-size: 1.1em; display: flex; align-items: center; }
-        .benefits-list li::before { content: '✓'; color: #ffab00; font-weight: bold; font-size: 1.5em; margin-right: 10px; }
+        /* === HEADER === */
+        header { 
+            padding: 20px 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            background: rgba(11, 15, 25, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 210, 255, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo h2 { color: #fff; font-size: 1.5rem; letter-spacing: 1px; }
+        .logo span { color: #00d2ff; text-shadow: 0 0 10px rgba(0, 210, 255, 0.5); }
+        .dealer-badge { font-size: 0.8rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 1.5px;}
 
-        /* GHL Form Container */
-        .form-container { background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); max-width: 400px; width: 100%; color: #333; text-align: center; }
-        .form-container h3 { margin-bottom: 15px; color: #0056b3; font-size: 1.5em; }
+        /* === HERO SECTION === */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 80px 5%;
+            min-height: 90vh;
+            position: relative;
+            overflow: hidden;
+        }
+        /* Background abstract glow */
+        .hero::before {
+            content: ''; position: absolute; top: -20%; left: -10%; width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(0,210,255,0.15) 0%, rgba(0,0,0,0) 70%);
+            border-radius: 50%; z-index: -1;
+        }
+
+        .hero-text { flex: 1; max-width: 600px; z-index: 2; }
+        .hero-text h1 { 
+            font-size: 3.5rem; 
+            font-weight: 800; 
+            line-height: 1.1; 
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #fff, #00d2ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-text p { font-size: 1.1rem; color: #cbd5e1; margin-bottom: 30px; }
         
-        /* Trust Section */
-        .trust-section { padding: 50px 20px; text-align: center; background: #fff; }
-        .trust-section h2 { margin-bottom: 30px; color: #002244; }
-        .features { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 1000px; margin: 0 auto; }
-        .feature-box { flex: 1; min-width: 250px; padding: 20px; background: #f1f5f9; border-radius: 8px; }
-        .feature-box h4 { color: #0056b3; margin-bottom: 10px; font-size: 1.2em; }
+        .cta-btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background: linear-gradient(45deg, #0056b3, #00d2ff);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            animation: glow 3s infinite;
+        }
+        .cta-btn:hover { transform: scale(1.05); }
 
-        /* Footer */
-        footer { background-color: #222; color: #ccc; text-align: center; padding: 20px; font-size: 0.9em; }
+        /* Floating Vector / Lottie Graphic Area */
+        .hero-graphic {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: float 6s ease-in-out infinite;
+            position: relative;
+        }
+
+        /* === GHL FORM GLOW CONTAINER === */
+        .form-section {
+            padding: 60px 5%;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+        .ghl-container {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 210, 255, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 0 30px rgba(0, 210, 255, 0.1);
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+        .ghl-container h3 { color: #fff; margin-bottom: 10px; font-size: 1.8rem; }
+        .ghl-container p { color: #94a3b8; margin-bottom: 25px; font-size: 0.9rem; }
+
+        /* === FEATURES / BENEFITS (Glowing Cards) === */
+        .features { padding: 80px 5%; text-align: center; }
+        .features h2 { font-size: 2.5rem; margin-bottom: 50px; color: #fff; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        
+        .feature-card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 40px 20px;
+            border-radius: 15px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .feature-card:hover {
+            border-color: rgba(0, 210, 255, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 210, 255, 0.15);
+            transform: translateY(-10px);
+        }
+        /* Small glowing icon placeholder */
+        .feature-icon {
+            width: 60px; height: 60px; margin: 0 auto 20px;
+            background: rgba(0, 210, 255, 0.1);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: #00d2ff; font-size: 1.5rem; font-weight: bold;
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
+        }
+        .feature-card h4 { color: #fff; font-size: 1.3rem; margin-bottom: 15px; }
+        .feature-card p { color: #94a3b8; font-size: 0.95rem; }
 
         /* Mobile Adjustments */
-        @media (max-width: 768px) {
-            .hero { flex-direction: column; align-items: center; text-align: center; padding: 40px 20px; }
-            .hero-content h1 { font-size: 2.2em; }
-            .benefits-list li { justify-content: center; text-align: left; }
+        @media (max-width: 900px) {
+            .hero { flex-direction: column; text-align: center; padding-top: 40px; }
+            .hero-text h1 { font-size: 2.5rem; }
+            .hero-graphic { margin-top: 50px; }
+            header { flex-direction: column; gap: 10px; text-align: center; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h2>Gutter Helmet of NW Ohio</h2>
-        <div class="dealer-badge">Official & Exclusive Dealer: <strong>All Exterior Solutions</strong></div>
+        <div class="logo"><h2>Gutter<span>Helmet</span></h2></div>
+        <div class="dealer-badge">Exclusive NW Ohio Dealer: <strong>All Exterior Solutions</strong></div>
     </header>
 
     <section class="hero">
-        <div class="hero-content">
-            <h1>Never Clean Your Gutters Again.</h1>
-            <p>Protect your home with America's #1 leaf guard system. Keep leaves, pine needles, and debris out forever—and stay off that dangerous ladder.</p>
-            
-            <ul class="benefits-list">
-                <li>Patented Nose-Forward Design</li>
-                <li>Installs Over Your Existing Gutters</li>
-                <li>Triple Lifetime Transferable Warranty</li>
-                <li>Exclusive NW Ohio Local Installers</li>
-            </ul>
+        <div class="hero-text">
+            <h1>The Science of <br>A Perfect Roofline.</h1>
+            <p>Ditch the flimsy filters and dangerous ladders. Gutter Helmet uses the patented physics of surface tension to pull rainwater in while pushing leaves, pine needles, and debris out. <strong>100% Carefree. Guaranteed for Life.</strong></p>
+            <a href="#quote-form" class="cta-btn">Claim Your Free Estimate</a>
         </div>
+        
+        <div class="hero-graphic">
+            <lottie-player 
+                src="https://lottie.host/5053b85f-7f55-43ea-9fc9-c8c3a11942fc/T9pGgMvIbz.json" 
+                background="transparent" 
+                speed="1" 
+                style="width: 100%; max-width: 500px; filter: drop-shadow(0 0 20px rgba(0, 210, 255, 0.4));" 
+                loop 
+                autoplay>
+            </lottie-player>
+        </div>
+    </section>
 
-        <div class="form-container">
-            <h3>Get Your Free Estimate</h3>
-            <p style="font-size: 0.9em; margin-bottom: 20px;">Fill out the form below to claim your exclusive local offer.</p>
+    <section class="features">
+        <h2>Why Filters Fail & Physics Wins</h2>
+        <div class="features-grid">
             
-            <div style="padding: 40px 10px; background: #f9f9f9; border: 2px dashed #ccc; color: #777;">
-                <em>[ Your GoHighLevel Form Will Appear Here ]</em>
+            <div class="feature-card">
+                <div class="feature-icon">💧</div>
+                <h4>Surface Tension Tech</h4>
+                <p>Engineered with a patented Nose-Forward design. Water clings to the textured surface and flows safely into the gutter, while debris falls harmlessly to the ground.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <h4>PermaLife™ Finish</h4>
+                <p>Our heavy-gauge aluminum is coated in a high-performance, multi-layer paint finish that refuses to fade, chalk, or corrode under extreme Ohio weather.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">♾️</div>
+                <h4>Triple Lifetime Warranty</h4>
+                <p>Never pay for gutter cleaning again. Your system is backed by a 100% transferable lifetime warranty, protecting you and the next owner of your home.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="form-section" id="quote-form">
+        <div class="ghl-container">
+            <h3>Lock In Your Local Offer</h3>
+            <p>Installed exclusively by the experts at All Exterior Solutions.</p>
+            
+            <div style="padding: 40px; border: 1px dashed rgba(0, 210, 255, 0.4); border-radius: 10px; color: #64748b; font-style: italic;">
+                [ Paste GoHighLevel Embed Code Here ]
             </div>
             
             </div>
     </section>
-
-    <section class="trust-section">
-        <h2>Why NW Ohio Homeowners Choose Gutter Helmet</h2>
-        <div class="features">
-            <div class="feature-box">
-                <h4>Engineered to Last</h4>
-                <p>Heavy-duty mounting brackets and ribbed design handle heavy rainfall, snow loads, and extreme Ohio weather.</p>
-            </div>
-            <div class="feature-box">
-                <h4>No More Ladders</h4>
-                <p>Avoid the risk of slips and falls. Our system guarantees free-flowing gutters year-round, backed by our lifetime warranty.</p>
-            </div>
-            <div class="feature-box">
-                <h4>Local Experts</h4>
-                <p>As the exclusive dealer for NW Ohio, All Exterior Solutions ensures a flawless, professional installation every time.</p>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 Gutter Helmet of NW Ohio | Authorized Dealer: All Exterior Solutions</p>
-        <p>Serving Northwest Ohio and surrounding areas.</p>
-    </footer>
 
 </body>
 </html>
