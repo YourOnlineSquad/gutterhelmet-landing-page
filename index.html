@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gutter Helmet | All Exterior Solutions</title>
+    <title>Gutter Helmet | All Exterior Solutions | NW Ohio</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@400;700;800;900&display=swap" rel="stylesheet">
 
@@ -24,69 +24,93 @@
             background-color: var(--dark-bg); 
             color: #F8FAFC; 
             overflow-x: hidden;
+            line-height: 1.6;
         }
 
         .container { width: 100%; max-width: 1300px; margin: 0 auto; padding: 0 5%; }
         .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 50px; align-items: center; }
 
-        /* === NAV BAR FIX === */
+        /* === NAV BAR === */
         header {
             position: fixed; top: 0; width: 100%; z-index: 2000;
-            padding: 20px 0;
-            background: rgba(3, 7, 18, 0.8);
+            padding: 15px 0;
+            background: rgba(3, 7, 18, 0.85);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
         .header-content { display: flex; justify-content: space-between; align-items: center; }
-        /* Logo Fix */
-        .logo-img { height: 60px; width: auto; display: block; }
+        .logo-img { height: 55px; width: auto; }
 
-        /* === HERO (KEEPING YOUR CURRENT DESIGN) === */
+        /* === HERO (FIXED FORM POSITION) === */
         .hero { 
-            position: relative; min-height: 100vh; display: flex; align-items: center; padding-top: 100px;
-            background: linear-gradient(rgba(3, 7, 18, 0.5), var(--dark-bg)),
+            position: relative; min-height: 100vh; display: flex; align-items: center; padding-top: 120px;
+            background: linear-gradient(rgba(3, 7, 18, 0.4), var(--dark-bg)),
                         url('assets/images/gutter_helmet_beauty_shot.png') no-repeat center center;
-            background-size: cover;
+            background-size: cover; background-attachment: fixed;
         }
-        .hero-text h1 { font-family: 'Outfit'; font-size: clamp(3rem, 7vw, 6rem); font-weight: 900; line-height: 0.9; margin-bottom: 30px; }
+        .hero-text h1 { font-family: 'Outfit'; font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 900; line-height: 1; margin-bottom: 25px; }
         .hero-text h1 span { color: var(--aes-green); text-shadow: 0 0 30px var(--aes-green-glow); }
-        .hero-form-placeholder {
-            background: rgba(17, 24, 39, 0.7); border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(15px); padding: 40px; border-radius: var(--radius-lg);
-            width: 100%; max-width: 450px; min-height: 500px; margin-left: auto;
+        
+        .hero-form-console {
+            background: rgba(17, 24, 39, 0.6); border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(25px); padding: 45px; border-radius: var(--radius-lg);
+            width: 100%; max-width: 450px; margin-left: auto;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.7);
         }
 
-        /* === HIGH-END VECTOR ICONS SECTION === */
-        .icon-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 60px; }
-        .vector-icon-card {
-            padding: 30px; text-align: center; background: rgba(255,255,255,0.02);
+        /* === ICON SECTION === */
+        .icon-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 100px 0; }
+        .icon-card {
+            padding: 40px; text-align: center; background: rgba(255,255,255,0.02);
             border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); transition: var(--transition);
         }
-        .vector-icon-card:hover { transform: translateY(-10px); border-color: var(--aes-green); background: rgba(0, 204, 51, 0.05); }
+        .icon-card:hover { transform: translateY(-10px); border-color: var(--aes-green); background: rgba(0, 204, 51, 0.05); }
         
         .aura-icon {
-            width: 80px; height: 80px; margin: 0 auto 20px;
-            background: radial-gradient(circle, var(--aes-green) 0%, transparent 70%);
+            width: 90px; height: 90px; margin: 0 auto 25px;
+            background: radial-gradient(circle, var(--aes-green) 0%, transparent 75%);
             display: flex; align-items: center; justify-content: center;
-            font-family: 'Outfit'; font-weight: 900; font-size: 1.5rem; color: #fff;
-            border-radius: 50%; box-shadow: 0 0 20px var(--aes-green-glow);
+            font-family: 'Outfit'; font-weight: 900; font-size: 1.8rem; color: #fff;
+            border-radius: 50%; box-shadow: 0 0 30px var(--aes-green-glow);
         }
 
-        /* === AWARD / SOCIAL PROOF SECTION === */
-        .award-section { padding: 100px 0; background: linear-gradient(to right, transparent, rgba(0, 119, 200, 0.05)); }
-        .award-img { width: 100%; max-width: 400px; filter: drop-shadow(0 0 20px rgba(0, 119, 200, 0.4)); border-radius: 20px; }
+        /* === NEW: BEFORE & AFTER SECTION === */
+        .comparison-section { padding: 120px 0; position: relative; }
+        .comparison-img { 
+            width: 100%; border-radius: var(--radius-lg); 
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5); 
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .badge { 
+            display: inline-block; padding: 8px 16px; border-radius: 50px; 
+            background: rgba(0, 119, 200, 0.1); border: 1px solid var(--aes-blue);
+            color: var(--aes-blue); font-weight: 800; font-size: 0.75rem; letter-spacing: 2px;
+            margin-bottom: 20px; text-transform: uppercase;
+        }
 
-        /* === REVEAL === */
-        .reveal { opacity: 0; transform: translateY(40px); transition: all 1s ease-out; }
+        /* === AWARD / NATIONAL TRUST === */
+        .award-banner { 
+            padding: 80px 0; background: linear-gradient(90deg, transparent, rgba(0, 119, 200, 0.08), transparent); 
+            text-align: center;
+        }
+        .award-logo { max-width: 350px; margin-bottom: 30px; filter: drop-shadow(0 0 15px rgba(0, 119, 200, 0.5)); }
+
+        /* === REVEAL EFFECT === */
+        .reveal { opacity: 0; transform: translateY(50px); transition: all 1s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
         .btn {
-            padding: 18px 40px; border-radius: 100px; font-family: 'Outfit'; font-weight: 800;
+            padding: 20px 45px; border-radius: 100px; font-family: 'Outfit'; font-weight: 900;
             text-transform: uppercase; text-decoration: none; display: inline-block;
             background: var(--aes-green); color: #030712; transition: var(--transition);
+            box-shadow: 0 10px 30px var(--aes-green-glow);
         }
-        .btn:hover { transform: scale(1.05); box-shadow: 0 0 30px var(--aes-green); }
+        .btn:hover { transform: scale(1.05); background: #00E639; box-shadow: 0 0 40px var(--aes-green); }
 
+        @media (max-width: 1024px) {
+            .grid { grid-template-columns: 1fr; text-align: center; }
+            .hero-form-console { margin: 50px auto 0; }
+        }
     </style>
 </head>
 <body>
@@ -103,54 +127,74 @@
 
     <section class="hero">
         <div class="container grid">
-            <div class="col-12 hero-text">
+            <div class="col-12 hero-text reveal active">
                 <h1>Never Clean Your <br><span>Gutters Again.</span></h1>
-                <p style="font-size: 1.25rem; color: rgba(255,255,255,0.8); margin-bottom: 35px; max-width: 600px;">
-                    Experience the 2026 Northwest Ohio standard in home equity protection. Using Surface Tension Physics to keep debris out and water flowing—permanently.
+                <p style="font-size: 1.3rem; color: rgba(255,255,255,0.85); margin-bottom: 40px; max-width: 650px;">
+                    Experience the 2026 Northwest Ohio standard in home protection. Using <b>Surface Tension Physics</b> to keep debris out and water flowing—permanently.
                 </p>
                 <a href="#quote" class="btn">Get My Free Assessment</a>
             </div>
-            <div class="col-12">
-                <div class="hero-form-placeholder">
-                    <p style="font-family: monospace; color: rgba(255,255,255,0.3); text-align: center;">[ GHL LEAD FORM WIDGET ]</p>
+            <div class="col-12 reveal active">
+                <div class="hero-form-console">
+                    <h3 style="font-family: 'Outfit'; font-size: 1.8rem; margin-bottom: 10px;">Secure Your ROI</h3>
+                    <p style="color: var(--aes-blue); font-weight: 800; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 30px; letter-spacing: 1px;">Request NW Ohio Assessment</p>
+                    <div style="width: 100%; height: 350px; border: 1px dashed rgba(255,255,255,0.15); border-radius: 20px; display: flex; align-items: center; justify-content: center;">
+                        <span style="font-family: monospace; color: var(--aes-blue); font-size: 0.8rem;">[ GHL FORM LOADS HERE ]</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="container" style="padding: 100px 0;">
+    <section class="container">
         <div class="icon-grid reveal">
-            <div class="vector-icon-card">
+            <div class="icon-card">
                 <div class="aura-icon">0°</div>
-                <h3 style="font-family: 'Outfit'; margin-bottom: 10px;">Zero Maintenance</h3>
-                <p style="color: #94A3B8; font-size: 0.9rem;">Engineered to handle the heaviest debris loads without ever needing a manual cleaning.</p>
+                <h3 style="font-family: 'Outfit'; margin-bottom: 10px; font-size: 1.5rem;">Zero Maintenance</h3>
+                <p style="color: #94A3B8;">Patented technology engineered to handle the heaviest debris loads without ever needing a manual cleaning.</p>
             </div>
-            <div class="vector-icon-card">
+            <div class="icon-card">
                 <div class="aura-icon">∞</div>
-                <h3 style="font-family: 'Outfit'; margin-bottom: 10px;">Triple Lifetime Warranty</h3>
-                <p style="color: #94A3B8; font-size: 0.9rem;">A permanent, transferable guarantee that protects your home for generations.</p>
+                <h3 style="font-family: 'Outfit'; margin-bottom: 10px; font-size: 1.5rem;">Triple Lifetime Warranty</h3>
+                <p style="color: #94A3B8;">A permanent, transferable guarantee that protects your home's equity for generations to come.</p>
             </div>
-            <div class="vector-icon-card">
+            <div class="icon-card">
                 <div class="aura-icon">100</div>
-                <h3 style="font-family: 'Outfit'; margin-bottom: 10px;">Surface Tension Max</h3>
-                <p style="color: #94A3B8; font-size: 0.9rem;">Utilizing physics to wrap water into the gutter while jettisoning leaves to the ground.</p>
+                <h3 style="font-family: 'Outfit'; margin-bottom: 10px; font-size: 1.5rem;">Surface Tension Max</h3>
+                <p style="color: #94A3B8;">Utilizing physics to wrap water into the gutter while jettisoning leaves and pine needles to the ground.</p>
             </div>
         </div>
     </section>
 
-    <section class="award-section reveal">
+    <section class="comparison-section">
         <div class="container grid">
-            <div style="grid-column: span 5;">
-                <img src="assets/images/award.jpg" alt="National Award" class="award-img">
+            <div style="grid-column: span 7;" class="reveal">
+                <img src="assets/images/before_after.png" alt="Before and After Comparison" class="comparison-img">
             </div>
-            <div style="grid-column: span 7;">
-                <h2 style="font-family: 'Outfit'; font-size: 3rem; margin-bottom: 20px;">America's #1 Choice</h2>
-                <p style="font-size: 1.1rem; color: #94A3B8; line-height: 1.8;">
-                    Gutter Helmet has been the gold standard in gutter protection for over 40 years. Our technology is consistently recognized for its performance in extreme climates, making it the most trusted name in Northwest Ohio for homeowners who refuse to compromise on quality.
+            <div style="grid-column: span 5;" class="reveal">
+                <span class="badge">Visual Proof</span>
+                <h2 style="font-family: 'Outfit'; font-size: 3.5rem; margin-bottom: 25px; line-height: 1.1;">The Reality <br>of <span class="green">Neglect.</span></h2>
+                <p style="font-size: 1.1rem; color: #94A3B8; margin-bottom: 30px;">
+                    Unprotected gutters aren't just an eyesore—they are the #1 cause of foundation cracking, basement flooding, and fascia rot in Northwest Ohio. 
                 </p>
+                <p style="color: white; font-weight: 600;">Stop treating the symptoms and fix the system permanently with Gutter Helmet.</p>
             </div>
         </div>
     </section>
+
+    <section class="award-banner reveal">
+        <div class="container">
+            <img src="assets/images/award.jpg" alt="America's #1 Choice" class="award-logo">
+            <h2 style="font-family: 'Outfit'; font-size: 2.5rem; margin-bottom: 15px;">America's #1 Choice</h2>
+            <p style="max-width: 800px; margin: 0 auto; color: #94A3B8;">
+                Recognized for over 40 years as the gold standard. Consistently awarded for performance in extreme climates, Gutter Helmet is the most trusted name in exterior protection.
+            </p>
+        </div>
+    </section>
+
+    <footer style="text-align: center; padding: 80px 0; color: #475569; font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.05);">
+        <p>&copy; 2026 All Exterior Solutions | Exclusive Gutter Helmet Dealer for NW Ohio</p>
+    </footer>
 
     <script>
         const observer = new IntersectionObserver((entries) => {
