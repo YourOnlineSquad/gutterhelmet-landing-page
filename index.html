@@ -3,152 +3,209 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gutter Helmet | Open Design</title>
+    <title>Gutter Helmet | All Exterior Solutions | Northwest Ohio</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
 
     <style>
         :root {
             --aes-blue: #0077C8;
+            --aes-blue-glow: rgba(0, 119, 200, 0.3);
             --aes-green: #00CC33;
+            --aes-green-glow: rgba(0, 204, 51, 0.4);
             --dark-bg: #030712;
-            --glass: rgba(255, 255, 255, 0.03);
+            --glass: rgba(15, 23, 42, 0.6);
         }
 
+        /* === FOUNDATION === */
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body { 
             font-family: 'Inter', sans-serif; 
             background-color: var(--dark-bg); 
             color: white; 
             overflow-x: hidden;
+            line-height: 1.6;
         }
 
-        /* === 1. THE OPEN HERO (Problem) === */
-        .section-hero {
+        h1, h2, h3 { font-family: 'Outfit'; line-height: 1; }
+        .green { color: var(--aes-green); text-shadow: 0 0 20px var(--aes-green-glow); }
+
+        /* === BRANDING === */
+        header {
+            position: absolute; top: 0; width: 100%; z-index: 1000;
+            padding: 40px 8%; display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo { height: 65px; filter: drop-shadow(0 0 15px rgba(0,0,0,0.5)); }
+
+        /* === SECTION 1: THE HERO (PROBLEM & AUTHORITY) === */
+        .hero {
             position: relative;
             min-height: 100vh;
-            display: flex;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
             align-items: center;
-            padding: 0 10%;
-            background: linear-gradient(to bottom, transparent, var(--dark-bg)),
+            padding: 120px 8% 80px;
+            background: linear-gradient(rgba(3, 7, 18, 0.4), var(--dark-bg)),
                         url('assets/images/gutter.helmet.beauty.shot.png') no-repeat center center;
             background-size: cover;
-            background-attachment: fixed; /* Parallax effect */
+            background-attachment: fixed;
         }
 
-        .hero-content { max-width: 600px; z-index: 2; }
-        
-        /* Floating Form Area */
-        .form-placeholder {
-            position: absolute;
-            right: 10%;
-            width: 400px;
-            height: 500px;
-            background: rgba(15, 23, 42, 0.6);
+        .hero-content { z-index: 10; padding-right: 40px; }
+        .hero-content h1 { font-size: clamp(3.5rem, 6vw, 5.5rem); margin-bottom: 30px; font-weight: 900; }
+        .hero-p { font-size: 1.2rem; color: rgba(255,255,255,0.9); margin-bottom: 40px; max-width: 750px; }
+
+        .cta-group { display: flex; gap: 20px; flex-wrap: wrap; }
+        .btn {
+            padding: 20px 40px; border-radius: 100px; font-family: 'Outfit';
+            font-weight: 800; text-transform: uppercase; text-decoration: none;
+            transition: all 0.4s ease; display: inline-block; font-size: 0.95rem; letter-spacing: 1px;
+        }
+        .btn-primary { background: var(--aes-green); color: #000; box-shadow: 0 15px 30px var(--aes-green-glow); }
+        .btn-secondary { background: rgba(255,255,255,0.05); color: #fff; border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(10px); }
+        .btn:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0, 204, 51, 0.5); }
+
+        /* Form Console */
+        .form-console {
+            background: var(--glass);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 40px;
-            box-shadow: 0 50px 100px rgba(0,0,0,0.5);
-        }
-
-        /* === 2. FLOATING ASSETS (Solution) === */
-        .section-open {
-            position: relative;
-            padding: 200px 0;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-        }
-
-        .floating-img {
-            width: 45%;
-            filter: drop-shadow(0 0 30px var(--aes-blue));
-            animation: float 6s infinite ease-in-out;
-            transition: transform 0.3s ease;
-        }
-
-        /* === 3. EXECUTION (The Engineering) === */
-        .section-execution {
-            padding: 150px 10%;
-            background: radial-gradient(circle at 0% 50%, var(--aes-blue-glow), transparent 40%);
-        }
-
-        /* === 4. SAVINGS (Financial) === */
-        .section-savings {
-            padding: 150px 10%;
+            padding: 40px;
+            min-height: 550px;
+            box-shadow: 0 50px 100px rgba(0,0,0,0.6);
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
             text-align: center;
         }
 
-        /* === GLOBAL UTILITIES === */
-        h1, h2 { font-family: 'Outfit'; font-size: clamp(3rem, 8vw, 6rem); line-height: 1; margin-bottom: 20px; }
-        .green { color: var(--aes-green); }
-        
-        /* The "Floating" Animation */
+        /* === SECTION 2: SOLUTION (THE SCIENCE) === */
+        .section-open {
+            position: relative;
+            padding: 150px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 60px;
+        }
+        .floating-img {
+            width: 50%;
+            filter: drop-shadow(0 0 40px var(--aes-blue-glow));
+            animation: float 6s infinite ease-in-out;
+        }
+
+        /* === SECTION 3: EXECUTION (THE BUILD) === */
+        .section-execution {
+            padding: 120px 8%;
+            display: flex;
+            align-items: center;
+            gap: 80px;
+        }
+        .execution-img {
+            width: 55%;
+            border-radius: 40px;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+        }
+
+        /* === SECTION 4: SAVINGS (ROI) === */
+        .section-savings {
+            padding: 150px 8%;
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(0, 204, 51, 0.05), transparent 70%);
+        }
+        .full-width-img {
+            width: 85%;
+            border-radius: 40px;
+            margin-bottom: 60px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+        }
+
+        /* === ANIMATIONS === */
         @keyframes float {
-            0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(1deg); }
-            100% { transform: translateY(0px) rotate(0deg); }
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-25px); }
         }
 
-        /* Large Glow Vectors */
-        .glow-vector {
-            position: absolute;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, var(--aes-blue) 0%, transparent 70%);
-            opacity: 0.15;
-            filter: blur(80px);
-            z-index: -1;
+        .glow-orb {
+            position: absolute; width: 500px; height: 500px;
+            background: var(--aes-blue); filter: blur(120px);
+            opacity: 0.1; z-index: -1;
         }
 
-        /* Fix for Logo path */
-        .logo { position: fixed; top: 30px; left: 5%; height: 50px; z-index: 1000; }
-
+        /* === RESPONSIVE === */
         @media (max-width: 1024px) {
-            .section-hero { flex-direction: column; text-align: center; justify-content: center; }
-            .form-placeholder { position: relative; right: auto; margin-top: 50px; width: 100%; }
-            .floating-img { width: 90%; }
+            .hero, .section-open, .section-execution { 
+                grid-template-columns: 1fr; 
+                flex-direction: column; 
+                text-align: center; 
+            }
+            .hero-content { padding-right: 0; margin-bottom: 50px; }
+            .floating-img, .execution-img { width: 100%; }
+            .hero-p { margin: 0 auto 40px; }
+            .cta-group { justify-content: center; }
+            header { justify-content: center; }
         }
     </style>
 </head>
 <body>
 
-    <img src="assets/images/all_exterior_solutions_transparent_logo.png" class="logo" alt="Logo">
+    <header>
+        <img src="assets/images/all_exterior_solutions_transparent_logo.png" alt="All Exterior Solutions" class="logo">
+    </header>
 
-    <section class="section-hero">
+    <section class="hero">
         <div class="hero-content">
             <h1>Engineered to Protect. <br><span class="green">Built for Life.</span></h1>
-            <p>Experience the 2026 standard in home protection. Using Surface Tension Physics to keep debris out and water flowing—permanently.</p>
-        </div>
-        <div class="form-placeholder">
+            
+            <p class="hero-p">
+                Most gutter protection systems rely on cheap plastic meshes or sponges that inevitably clog, rot, and fail—leaving you right back on a dangerous ladder. <strong>Gutter Helmet® is different.</strong> By utilizing the patented science of surface tension, we jettison leaves and debris directly to the ground while pulling every drop of rainwater safely into your gutters. This isn't just a filter; it's a permanent architectural upgrade that outlasts the generic competition and protects your home's foundation for a lifetime. 
+            </p>
+
+            <div class="cta-group">
+                <a href="#quote" class="btn btn-primary">Calculate My Lifetime ROI</a>
+                <a href="#science" class="btn btn-secondary">Compare the Protection</a>
             </div>
+        </div>
+
+        <div class="form-console">
+            <h3 style="margin-bottom: 10px;">Start Your Assessment</h3>
+            <p style="color: var(--aes-blue); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 30px;">NW Ohio Exclusive Dealer</p>
+            
+            <div style="width: 100%; height: 350px; border: 1px dashed rgba(255,255,255,0.2); border-radius: 20px; display: flex; align-items: center; justify-content: center;">
+                <span style="font-family: monospace; color: var(--aes-blue); font-size: 0.8rem; padding: 20px;">[ PASTE GOHIGHLEVEL CODE HERE ]</span>
+            </div>
+        </div>
     </section>
 
-    <section class="section-open">
-        <div class="glow-vector" style="top: 10%; left: -10%;"></div>
-        <img src="assets/images/197_gh_cutaway(callouts).jpg" class="floating-img" alt="Solution Graphic">
-        <div style="max-width: 400px;">
-            <h2>The Science <br><span class="green">of Surface Tension</span></h2>
-            <p>Water clings. Debris falls. It’s physics, not a filter.</p>
+    <section id="science" class="section-open">
+        <div class="glow-orb" style="top: 10%; left: -5%;"></div>
+        <img src="assets/images/197_gh_cutaway(callouts).jpg" class="floating-img" alt="Gutter Helmet Science">
+        <div style="max-width: 500px;">
+            <h2 style="font-size: 3.5rem; margin-bottom: 25px;">The Science <br><span class="green">of Surface Tension</span></h2>
+            <p style="font-size: 1.1rem; color: #94A3B8;">Water clings. Debris falls. By engineering the nose-forward design to work with the natural properties of water, we ensure your gutters stay clear without the need for high-maintenance screens.</p>
         </div>
     </section>
 
     <section class="section-execution">
-        <div style="display: flex; align-items: center; gap: 50px; flex-wrap: wrap;">
-            <div style="flex: 1; min-width: 300px;">
-                <h2>Built for <br><span class="green">Extreme Weather</span></h2>
-                <p>Heavy-gauge aluminum brackets handle Northwest Ohio’s heaviest snow loads.</p>
-            </div>
-            <img src="assets/images/cutaway.jpg" style="flex: 1.5; border-radius: 40px; box-shadow: 0 30px 60px rgba(0,0,0,0.5);" alt="Execution">
+        <div style="max-width: 500px;">
+            <h2 style="font-size: 3.5rem; margin-bottom: 25px;">Built for <br><span class="green">Extreme Weather</span></h2>
+            <p style="font-size: 1.1rem; color: #94A3B8;">Our heavy-gauge reinforced aluminum alloy brackets are built to handle the heaviest snow and ice loads Northwest Ohio can throw at them. This is high-performance armor for your eaves.</p>
         </div>
+        <img src="assets/images/cutaway.jpg" class="execution-img" alt="Execution Details">
     </section>
 
-    <section class="section-savings">
-        <div class="glow-vector" style="bottom: 0; right: 0; background: var(--aes-green); opacity: 0.1;"></div>
-        <img src="assets/images/before_after.png" style="width: 80%; border-radius: 40px; margin-bottom: 50px;" alt="Savings">
-        <h1>Save Your <span class="green">Foundation.</span></h1>
-        <p>The financial reality: Gutter Helmet isn't a cost, it's an investment in your home's equity.</p>
+    <section id="quote" class="section-savings">
+        <img src="assets/images/before_after.png" class="full-width-img" alt="Gutter Helmet Comparison">
+        <h2 style="font-size: 4rem; margin-bottom: 20px;">Protect Your <span class="green">Equity.</span></h2>
+        <p style="font-size: 1.2rem; color: #94A3B8; max-width: 800px; margin: 0 auto 50px;">
+            The financial reality: Unprotected gutters are the #1 cause of foundation damage and basement flooding. Gutter Helmet isn't just a convenience—it's a calculated investment in your home's long-term value.
+        </p>
+        <a href="#quote" class="btn btn-primary">Request Your Exclusive Assessment</a>
     </section>
+
+    <footer style="text-align: center; padding: 80px 0; border-top: 1px solid rgba(255,255,255,0.05); color: #475569; font-size: 0.9rem;">
+        <p>&copy; 2026 All Exterior Solutions | Exclusive Gutter Helmet Dealer for NW Ohio</p>
+    </footer>
 
 </body>
 </html>
