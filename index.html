@@ -3,66 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gutter Helmet | All Exterior Solutions | NW Ohio</title>
+    <title>Gutter Helmet | Futuristic Gutter Protection | All Exterior Solutions</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@400;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
     <style>
         :root {
-            --aes-blue: #0077C8; --aes-green: #00CC33;
-            --aes-green-glow: rgba(0, 204, 51, 0.4); --aes-blue-glow: rgba(0, 119, 200, 0.4);
-            --dark-bg: #030712; --radius-lg: 32px; --transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            --aes-blue: #0077C8;
+            --aes-blue-glow: rgba(0, 119, 200, 0.6);
+            --aes-green: #00CC33;
+            --aes-green-glow: rgba(0, 204, 51, 0.4);
+            --dark-bg: #030712; 
+            --text-light: #F8FAFC;
+            --radius-lg: 32px;
+            --transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
+
+        /* === RESET & FOUNDATION === */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--dark-bg); color: #F8FAFC; overflow-x: hidden; line-height: 1.6; }
-        .container { width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 5%; }
-        .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 50px; align-items: center; }
-        h1, h2, h3, h4 { font-family: 'Outfit'; line-height: 1; }
-        .green { color: var(--aes-green); text-shadow: 0 0 30px var(--aes-green-glow); }
-        .badge { display: inline-block; padding: 8px 16px; border-radius: 50px; background: rgba(0, 119, 200, 0.1); border: 1px solid var(--aes-blue); color: var(--aes-blue); font-weight: 800; font-size: 0.75rem; letter-spacing: 2px; margin-bottom: 20px; text-transform: uppercase; }
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--dark-bg); 
+            color: var(--text-light); 
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
 
-        /* === NAV BAR === */
-        header { position: fixed; top: 0; width: 100%; z-index: 2000; padding: 15px 0; background: rgba(3, 7, 18, 0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .container { width: 100%; max-width: 1300px; margin: 0 auto; padding: 0 5%; }
+        .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 50px; align-items: center; position: relative; }
+
+        /* === HEADER (GLASS) === */
+        header {
+            position: fixed; top: 0; width: 100%; z-index: 2000;
+            padding: 20px 0;
+            background: rgba(3, 7, 18, 0.7);
+            backdrop-filter: blur(25px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
         .header-content { display: flex; justify-content: space-between; align-items: center; }
-        .logo-img { height: 65px; width: auto; }
+        .logo-img { height: 50px; }
 
-        /* === HERO === */
-        .hero { position: relative; min-height: 100vh; display: flex; align-items: center; padding-top: 120px; background: linear-gradient(rgba(3, 7, 18, 0.4), var(--dark-bg)), url('assets/images/gutter_helmet_beauty_shot.png') no-repeat center center; background-size: cover; background-attachment: fixed; }
-        .hero-text h1 { font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 900; }
-        .hero-form-console { background: rgba(17, 24, 39, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(25px); padding: 45px; border-radius: var(--radius-lg); width: 100%; max-width: 450px; margin-left: auto; box-shadow: 0 40px 100px rgba(0, 0, 0, 0.7); }
+        /* === 1. IMMERSIVE HERO (OPEN) === */
+        .hero { 
+            position: relative; min-height: 100vh; overflow: hidden; display: flex; align-items: center; padding-top: 100px;
+        }
+        
+        /* The Full-Screen Background Image */
+        .hero::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 110%;
+            background-image: url('assets/images/gutter.helmet.beauty.shot.png');
+            background-size: cover; background-position: center;
+            filter: brightness(0.6) blur(5px);
+            mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+            z-index: -1; transform: scale(1.1); transition: transform 0.5s ease-out;
+        }
 
-        /* === AURA ICONS === */
-        .icon-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 100px 0; }
-        .icon-card { padding: 40px; text-align: center; background: rgba(255,255,255,0.02); border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); transition: var(--transition); }
-        .icon-card:hover { transform: translateY(-10px); border-color: var(--aes-green); background: rgba(0, 204, 51, 0.05); }
-        .aura-icon { width: 90px; height: 90px; margin: 0 auto 25px; background: radial-gradient(circle, var(--aes-green) 0%, transparent 75%); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.8rem; color: #fff; border-radius: 50%; box-shadow: 0 0 30px var(--aes-green-glow); }
+        .hero-text { z-index: 10; }
+        .hero-text h1 { 
+            font-family: 'Outfit'; font-size: clamp(3rem, 7vw, 6rem); 
+            font-weight: 900; line-height: 0.9; margin-bottom: 30px;
+            color: #fff; text-shadow: 0 5px 20px rgba(0,0,0,0.8);
+        }
+        .hero-text h1 span {
+            display: block; color: var(--aes-green); 
+            text-shadow: 0 0 30px var(--aes-green-glow);
+        }
 
-        /* === BEFORE & AFTER === */
-        .comparison-section { padding: 120px 0; }
-        .comparison-img { width: 100%; border-radius: var(--radius-lg); box-shadow: 0 30px 60px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); }
+        /* Hero Form Placeholder (3D Depth) */
+        .hero-form-placeholder {
+            background: rgba(17, 24, 39, 0.7);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            width: 100%; max-width: 450px; min-height: 500px; margin-left: auto;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.8), inset 0 0 30px rgba(0, 119, 200, 0.05);
+            transform: perspective(2000px) rotateY(-8deg) translateY(0px);
+            transition: var(--transition);
+        }
+        .hero-form-placeholder:hover { transform: perspective(2000px) rotateY(-2deg) translateY(-10px); border-color: var(--aes-blue); }
 
-        /* === 4 SEASON PROTECTION (THE TRANSPARENT GRAPHIC SECTION) === */
-        .protection-section { padding: 120px 0; background: radial-gradient(circle at center, rgba(0, 119, 200, 0.05), transparent 70%); }
-        .protection-diagram { width: 100%; transition: var(--transition); filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5)); }
-        .protection-diagram:hover { filter: drop-shadow(0 0 40px var(--aes-blue-glow)); transform: scale(1.02); }
-        .callout-list { list-style: none; }
-        .callout-list li { display: flex; align-items: start; gap: 20px; margin-bottom: 25px; font-size: 1.1rem; }
-        .bridge-icon { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; color: #fff; background: radial-gradient(circle, var(--aes-green) 0%, transparent 80%); border: 2px solid var(--aes-green); flex-shrink: 0; margin-top: 3px; box-shadow: 0 0 15px var(--aes-green-glow); }
+        /* === 2. SCIENCE SECTION (THE RESTORATION AREA) === */
+        .science-section { padding: 150px 0; position: relative; }
+        
+        /* MOVING VECTOR BACKGROUND GLOWS (Lottie Style) */
+        .vector-glow {
+            position: absolute; border-radius: 50%; 
+            filter: blur(120px); opacity: 0.3; z-index: -1;
+            animation: move-glow 20s infinite alternate ease-in-out;
+        }
+        .glow-1 { width: 350px; height: 350px; background: var(--aes-blue); top: 15%; left: -15%; }
+        .glow-2 { width: 450px; height: 450px; background: var(--aes-green); bottom: 15%; right: -5%; }
+
+        @keyframes move-glow { 0% { transform: translateY(0) scale(1); } 100% { transform: translateY(-70px) scale(1.1); } }
+
+        /* Floating Technical Graphic with BLUE GLOW */
+        .floating-graphic-tech {
+            width: 100%; border-radius: 20px; transition: var(--transition);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.7), 0 0 40px var(--aes-blue-glow); /* Blue image glow */
+            transform: perspective(1000px) rotateX(2deg);
+        }
+        .floating-graphic-tech:hover { transform: perspective(1000px) rotateX(0deg) scale(1.02); }
+
+        /* Text Layout for Floating Sections */
+        .science-text h2 { font-family: 'Outfit'; font-size: 3.5rem; margin-bottom: 20px; color: #fff; }
+
+        /* GLOWING CHECKMARK BULLETS (Restored) */
+        .glow-list { list-style: none; margin-top: 40px; }
+        .glow-list li {
+            position: relative; padding-left: 55px; margin-bottom: 20px;
+            font-size: 1.1rem; color: #94A3B8;
+        }
+        .glow-list li::before {
+            content: ''; position: absolute; left: 0; top: 0;
+            width: 32px; height: 32px;
+            background-image: url('assets/images/AES checkmark.png'); /* The Green checkmark graphic */
+            background-size: contain; background-repeat: no-repeat;
+            filter: drop-shadow(0 0 10px var(--aes-green-glow)); /* Glowing Bullet */
+        }
+
+        /* === BUTTONS === */
+        .btn {
+            padding: 20px 45px; border-radius: 100px; font-family: 'Outfit';
+            font-weight: 800; text-transform: uppercase; cursor: pointer;
+            transition: var(--transition); display: inline-block; text-decoration: none;
+        }
+        .btn-glow {
+            background: var(--aes-green); color: #030712;
+            box-shadow: 0 10px 30px var(--aes-green-glow);
+        }
+        .btn-glow:hover { transform: translateY(-5px) scale(1.05); background: #00E639; box-shadow: 0 0 50px var(--aes-green); }
+
+        /* === CTA BANNER SECTION === */
+        .cta-banner {
+            background: linear-gradient(90deg, #030712 0%, #061026 50%, #030712 100%);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 80px 0; text-align: center;
+        }
 
         /* === PREMIER SERVICES GRID === */
-        .services-console { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: var(--radius-lg); padding: 80px 60px; backdrop-filter: blur(15px); box-shadow: 0 40px 100px rgba(0,0,0,0.6); }
-        .service-column h4 { color: var(--aes-green); font-size: 1rem; text-transform: uppercase; margin-bottom: 25px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px; }
+        .services-section { padding: 120px 0; background: #030712; }
+        .services-console {
+            background: rgba(17, 24, 39, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-lg);
+            padding: 60px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+        }
+        .service-column h4 { color: var(--aes-green); font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 25px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px; }
         .service-list { list-style: none; }
-        .service-list li { color: #94A3B8; margin-bottom: 10px; transition: 0.3s; }
+        .service-list li { color: #94A3B8; font-size: 1rem; margin-bottom: 10px; transition: 0.3s; }
         .service-list li:hover { color: #fff; transform: translateX(8px); }
 
-        /* === AWARD BANNER === */
-        .award-banner { padding: 120px 0; text-align: center; }
-        .award-logo { max-width: 350px; margin-bottom: 30px; filter: drop-shadow(0 0 15px rgba(0, 119, 200, 0.5)); }
-
-        .btn { padding: 20px 45px; border-radius: 100px; font-weight: 900; text-transform: uppercase; text-decoration: none; display: inline-block; background: var(--aes-green); color: #030712; transition: var(--transition); box-shadow: 0 10px 30px var(--aes-green-glow); }
-        .reveal { opacity: 0; transform: translateY(50px); transition: all 1s ease-out; }
+        /* === REVEAL ON SCROLL === */
+        .reveal { opacity: 0; transform: translateY(60px); transition: all 1s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        @media (max-width: 1024px) { .grid { grid-template-columns: 1fr; text-align: center; } .hero-form-console { margin: 50px auto 0; } .services-grid { grid-template-columns: 1fr 1fr; } }
+        /* Simple Parallax Logic */
+        [data-parallax] { will-change: transform; transition: transform 0.1s linear; }
+
+        @media (max-width: 1024px) {
+            .grid { grid-template-columns: 1fr; }
+            .hero-text { text-align: center; }
+            .hero-form-placeholder { margin: 50px auto 0; transform: none !important; }
+            .services-grid { grid-template-columns: 1fr 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -79,88 +190,47 @@
 
     <section class="hero">
         <div class="container grid">
-            <div class="col-12 hero-text reveal active">
-                <h1>Never Clean Your <br><span>Gutters Again.</span></h1>
-                <p style="font-size: 1.3rem; color: rgba(255,255,255,0.85); margin-bottom: 40px; max-width: 650px;">Experience the 2026 Northwest Ohio standard in home protection. Using <b>Surface Tension Physics</b> to keep debris out and water flowing—permanently.</p>
-                <a href="#quote" class="btn">Get My Free Assessment</a>
+            <div class="col-12 hero-text reveal active" style="grid-column: span 7;">
+                <h1>Never Clean Your <span>Gutters Again.</span></h1>
+                <p style="font-size: 1.4rem; color: rgba(255,255,255,0.8); margin-bottom: 40px; max-width: 600px; text-shadow: 0 2px 5px rgba(0,0,0,0.5);">
+                    Experience the 2026 Northwest Ohio standard in home equity protection. Using <b>Surface Tension Physics</b> to keep debris out and water flowing—permanently.
+                </p>
+                <a href="#quote" class="btn btn-glow">Get My Free Assessment</a>
             </div>
-            <div class="col-12 reveal active">
-                <div class="hero-form-console">
-                    <h3 style="font-size: 1.8rem; margin-bottom: 10px;">Secure Your ROI</h3>
-                    <div style="width: 100%; height: 350px; border: 1px dashed rgba(255,255,255,0.15); border-radius: 20px; display: flex; align-items: center; justify-content: center;">
-                        <span style="font-family: monospace; color: var(--aes-blue); font-size: 0.8rem;">[ GHL FORM ]</span>
-                    </div>
+            <div class="col-12 reveal active" style="grid-column: span 5;">
+                <div class="hero-form-placeholder">
+                    <p style="font-family: monospace; color: rgba(255,255,255,0.4);">[ GHL LEAD FORM WIDGET ]</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="container">
-        <div class="icon-grid reveal">
-            <div class="icon-card"><div class="aura-icon">0°</div><h3>Zero Maintenance</h3></div>
-            <div class="icon-card"><div class="aura-icon">∞</div><h3>Triple Lifetime Warranty</h3></div>
-            <div class="icon-card"><div class="aura-icon">100</div><h3>Surface Tension Max</h3></div>
-        </div>
-    </section>
+    <section class="science-section" id="science">
+        <div class="vector-glow glow-1"></div>
+        <div class="vector-glow glow-2"></div>
 
-    <section class="comparison-section">
         <div class="container grid">
-            <div style="grid-column: span 7;" class="reveal"><img src="assets/images/before_after.png" class="comparison-img"></div>
-            <div style="grid-column: span 5;" class="reveal">
-                <span class="badge">Visual Proof</span>
-                <h2 style="font-size: 3.5rem; margin-bottom: 25px;">The Reality of <span class="green">Neglect.</span></h2>
-                <p style="font-size: 1.1rem; color: #94A3B8;">Unprotected gutters aren't just an eyesore—they are the #1 cause of foundation damage and fascia rot in NW Ohio.</p>
+            <div class="col-12 reveal" style="grid-column: span 12; text-align: center; margin-bottom: 80px;">
+                <span style="display: block; color: var(--aes-blue); text-transform: uppercase; letter-spacing: 2px; font-weight: 800; margin-bottom: 15px;">Patented Engineering</span>
+                <h2 style="font-family: 'Outfit'; font-size: 3.5rem;">Physics Over Filters</h2>
             </div>
-        </div>
-    </section>
+            
+            <div class="col-12 reveal" style="grid-column: span 7;" data-parallax="0.2">
+                <img src="assets/images/197_gh_cutaway(callouts).jpg" alt="Science of Gutter Helmet" class="floating-graphic-tech">
+            </div>
 
-    <section class="protection-section">
-        <div class="container grid">
-            <div style="grid-column: span 7;" class="reveal"><img src="assets/images/four_season.png" class="protection-diagram"></div>
-            <div style="grid-column: span 5;" class="reveal">
-                <span class="badge" style="border-color: var(--aes-green); color: var(--aes-green);">Engineering</span>
-                <h2 style="font-size: 3.5rem; margin-bottom: 25px;"><span class="green">4 Season</span> Protection.</h2>
-                <ul class="callout-list">
-                    <li><div class="bridge-icon">1</div><div><strong>Patented Nose-Forward Design™</strong> Water enters; debris and animals stay out.</div></li>
-                    <li><div class="bridge-icon">2</div><div><strong>Patented Textured Surface</strong> Increases tension and strength for heavy snow.</div></li>
-                    <li><div class="bridge-icon">3</div><div><strong>PermaLife™ Finish</strong> High-performance protection against chalk & fade.</div></li>
-                    <li><div class="bridge-icon">4</div><div><strong>Horizontal Stiffening Ribs</strong> Reinforces panel integrity for a lifetime.</div></li>
-                    <li><div class="bridge-icon">5</div><div><strong>Premium Engineered Bracket</strong> Reinforced aluminum alloy system.</div></li>
+            <div class="col-12 science-text reveal" style="grid-column: span 5;">
+                <h3 style="font-family: 'Outfit'; font-size: 2.5rem; margin-bottom: 15px;">Above the Rest</h3>
+                <p style="color: #94A3B8;">Water clings. Debris falls. By engineering the nose-forward design to work with the natural properties of water, Gutter Helmet is the only solution that utilize simple physical dynamics to outsmart nature.</p>
+                
+                <ul class="glow-list">
+                    <li><strong style="color: #fff;">Zero Debris Infiltration:</strong> The textured surface dynamics jettison leaves and pine needles harmlessly to the ground.</li>
+                    <li><strong style="color: #fff;">Triple Lifetime Warranty:</strong> A one-time professional installation that protects your existing system permanently.</li>
+                    <li><strong style="color: #fff;">Helmet Heat Integrated:</strong> Detects freezing temperatures and self-regulates to eliminate destructive ice dams.</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <section class="premier-services-section reveal">
-        <div class="container"><div class="services-console"><div class="grid">
-            <div style="grid-column: span 4; text-align: center;">
-                <img src="assets/images/all_exterior_solutions_transparent_logo.png" style="max-width: 250px; margin-bottom: 30px;">
-                <h2 style="font-size: 2.8rem; margin-bottom: 20px;">Ohio's <span class="green">Premier</span> Authority</h2>
-            </div>
-            <div style="grid-column: span 8; display: grid; grid-template-columns: repeat(2, 1fr); gap: 60px;" class="services-grid">
-                <div class="service-column"><h4>Roofing</h4><ul class="service-list"><li>Replacement</li><li>Installation</li><li>Repair</li></ul></div>
-                <div class="service-column"><h4>Siding</h4><ul class="service-list"><li>Vinyl & Fiber Cement</li><li>Siding Installation</li></ul></div>
-                <div class="service-column"><h4>Gutters</h4><ul class="service-list"><li>Seamless Systems</li><li>Cleaning & Repair</li></ul></div>
-                <div class="service-column"><h4>Windows</h4><ul class="service-list"><li>Energy-Efficient</li><li>Custom Installation</li></ul></div>
-            </div>
-        </div></div></div>
-    </section>
-
-    <section id="quote" class="award-banner reveal">
-        <div class="container">
-            <img src="assets/images/award.jpg" alt="America's #1 Choice" class="award-logo">
-            <h2 style="font-size: 3rem; margin-bottom: 20px;">America's #1 Choice</h2>
-            <a href="#quote" class="btn">Calculate Your ROI</a>
-        </div>
-    </section>
-
-    <footer style="text-align: center; padding: 80px 0; color: #475569; font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.05);"><p>&copy; 2026 All Exterior Solutions | Exclusive Gutter Helmet Dealer for NW Ohio</p></footer>
-
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    </script>
-</body>
+    </body>
 </html>
