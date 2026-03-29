@@ -54,7 +54,7 @@
         .container { width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 5%; }
         .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 50px; align-items: center; }
 
-        h1, h2, h3, h4 { font-family: 'Outfit'; line-height: 1.1; }
+        h1, h2, h3, h4 { font-family: 'Outfit'; line-height: 1; }
         .green { color: var(--aes-green); text-shadow: 0 0 30px var(--aes-green-glow); }
 
         /* === NAV BAR === */
@@ -81,6 +81,13 @@
             0%, 100% { box-shadow: 0 0 15px var(--aes-blue-glow); }
             50% { box-shadow: 0 0 25px var(--aes-blue); }
         }
+        .dealer-title-glow {
+            color: var(--aes-green);
+            text-shadow: 0 0 15px var(--aes-green-glow);
+            font-family: 'Outfit';
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
 
         /* === HERO SECTION === */
         .hero { 
@@ -89,7 +96,7 @@
                         url('assets/images/gutter_helmet_beauty_shot.png') no-repeat center center;
             background-size: cover; background-attachment: fixed;
         }
-        .hero-text h1 { font-size: clamp(2.5rem, 6.5vw, 5rem); font-weight: 900; margin-bottom: 25px;}
+        .hero-text h1 { font-size: clamp(3rem, 6.5vw, 5rem); font-weight: 900; margin-bottom: 25px;}
         
         .hero-form-console {
             background: rgba(17, 24, 39, 0.75); border: 1px solid rgba(255, 255, 255, 0.15);
@@ -110,7 +117,7 @@
             width: 90px; height: 90px; margin: 0 auto 25px;
             background: radial-gradient(circle, var(--aes-green) 0%, transparent 75%);
             display: flex; align-items: center; justify-content: center;
-            font-family: 'Outfit'; font-weight: 900; font-size: 1.8rem; color: #fff;
+            font-weight: 900; font-size: 1.8rem; color: #fff;
             border-radius: 50%; box-shadow: 0 0 30px var(--aes-green-glow);
         }
 
@@ -157,27 +164,47 @@
         .reveal { opacity: 0; transform: translateY(50px); transition: all 1s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* === MOBILE RESPONSIVE OVERRIDES === */
-        @media (max-width: 1024px) {
-            .grid { grid-template-columns: 1fr; text-align: center; }
-            .hero-form-console { margin: 40px auto 0; min-height: auto; max-width: 100%; padding: 20px; }
-            .services-grid { grid-template-columns: 1fr; gap: 30px; }
-            .hero-text { text-align: center; width: 100%; }
-            .hero-text h1 { font-size: 2.8rem; }
-            .comparison-section .grid div, .protection-section .grid div { grid-column: span 12 !important; }
-            .services-console { padding: 40px 20px; }
-            .services-console .grid div { grid-column: span 12 !important; }
-            .dealer-capsule { display: none; } /* Hide on small mobile to save header space */
-            .logo-img { height: 40px; }
-            h2 { font-size: 2.2rem !important; }
-            .protection-section ul li { justify-content: center; text-align: left; }
-            .form-full-wrap { padding: 20px; }
-        }
+        /* =========================================
+           CRITICAL MOBILE FIXES (Screnshots Analyze)
+           ========================================= */
+        @media (max-width: 768px) {
+            .grid { grid-template-columns: 1fr !important; text-align: center; gap: 40px; }
+            
+            /* Header Fixes (Stop overlap) */
+            .logo-img { height: 35px !important; }
+            .dealer-capsule { padding: 5px 12px !important; }
+            .dealer-capsule p:first-child { font-size: 0.5rem !important; }
+            .dealer-title-glow { font-size: 0.65rem !important; }
 
-        @media (max-width: 480px) {
-            .hero { background-attachment: scroll; padding-top: 100px; } /* Improved performance on mobile */
-            .icon-card { padding: 20px; }
-            .hero-text h1 { font-size: 2.2rem; }
+            /* Hero Fixes */
+            .hero { padding-top: 100px !important; min-height: auto !important; background-attachment: scroll !important; }
+            .hero-text h1 { font-size: 2.2rem !important; margin-bottom: 15px; }
+            .hero-text p { font-size: 1rem !important; padding: 0 10px; }
+            .hero-form-console { margin: 40px auto 0 !important; width: 100%; min-height: 850px !important; }
+
+            /* Grid Content Fixes */
+            .comparison-section .grid div { grid-column: span 12 !important; }
+            .protection-section .grid div { grid-column: span 12 !important; }
+            .services-console .grid div { grid-column: span 12 !important; }
+
+            /* Centering specific items from screenshots */
+            h2 { font-size: 2.2rem !important; text-align: center !important; }
+            .badge { margin: 0 auto 15px !important; display: table !important; }
+            
+            /* List centering for "4 Season" section */
+            ul[style*="list-style:none"] li { 
+                justify-content: flex-start !important; 
+                text-align: left !important; 
+                max-width: 320px; 
+                margin-left: auto; 
+                margin-right: auto;
+            }
+
+            /* Premier Authority Section centering */
+            .premier-services-section h2 { margin-bottom: 40px !important; }
+            .services-grid { grid-template-columns: 1fr !important; }
+            .service-column { margin-bottom: 30px; }
+            .services-console { padding: 40px 20px !important; }
         }
     </style>
 </head>
@@ -188,7 +215,7 @@
             <img src="assets/images/all_exterior_solutions_transparent_logo.png" alt="All Exterior Solutions" class="logo-img">
             <div class="dealer-capsule">
                 <p style="font-size: 0.75rem; color: #fff; font-weight: 800; letter-spacing: 2px;">NW OHIO EXCLUSIVE</p>
-                <p style="font-family: 'Outfit'; font-weight: 700; color: #fff; font-size: 0.95rem;">Gutter Helmet Dealer</p>
+                <p class="dealer-title-glow">Gutter Helmet Dealer</p>
             </div>
         </div>
     </header>
@@ -232,7 +259,9 @@
 
     <section class="comparison-section">
         <div class="container grid">
-            <div style="grid-column: span 7;" class="reveal"><img src="assets/images/before_after.png" class="comparison-img"></div>
+            <div style="grid-column: span 7;" class="reveal">
+                <img src="assets/images/before_after.png" alt="Before and After Comparison" class="comparison-img">
+            </div>
             <div style="grid-column: span 5;" class="reveal">
                 <span class="badge">Visual Proof</span>
                 <h2 style="font-size: 3.5rem; margin-bottom: 25px;">The Reality of <span class="green">Neglect.</span></h2>
@@ -295,7 +324,9 @@
         </div>
     </section>
 
-    <footer style="text-align: center; padding: 80px 0; color: #475569; font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.05);"><p>&copy; 2026 All Exterior Solutions | Exclusive Gutter Helmet Dealer for NW Ohio</p></footer>
+    <footer style="text-align: center; padding: 80px 0; color: #475569; font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.05);">
+        <p>&copy; 2026 All Exterior Solutions | Exclusive Gutter Helmet Dealer for NW Ohio</p>
+    </footer>
 
     <script src="https://link.jvrtechllc.com/js/form_embed.js"></script>
     <script>
