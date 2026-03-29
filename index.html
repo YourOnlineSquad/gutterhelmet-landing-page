@@ -1,145 +1,92 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gutter Helmet | Futuristic Protection | All Exterior Solutions</title>
+    <title>Gutter Helmet | All Exterior Solutions</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@400;700;800;900&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
     <style>
         :root {
             --aes-blue: #0077C8;
-            --aes-blue-glow: rgba(0, 119, 200, 0.6);
             --aes-green: #00CC33;
             --aes-green-glow: rgba(0, 204, 51, 0.4);
             --dark-bg: #030712; 
-            --text-light: #F8FAFC;
             --radius-lg: 32px;
             --transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* === RESET & FOUNDATION === */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body { 
             font-family: 'Inter', sans-serif; 
             background-color: var(--dark-bg); 
-            color: var(--text-light); 
+            color: #F8FAFC; 
             overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
         }
 
         .container { width: 100%; max-width: 1300px; margin: 0 auto; padding: 0 5%; }
-        .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 50px; align-items: center; position: relative; }
+        .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 50px; align-items: center; }
 
-        /* === HEADER (GLASS) === */
+        /* === NAV BAR FIX === */
         header {
             position: fixed; top: 0; width: 100%; z-index: 2000;
             padding: 20px 0;
-            background: rgba(3, 7, 18, 0.7);
-            backdrop-filter: blur(25px);
+            background: rgba(3, 7, 18, 0.8);
+            backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
         .header-content { display: flex; justify-content: space-between; align-items: center; }
-        .logo-img { height: 50px; }
+        /* Logo Fix */
+        .logo-img { height: 60px; width: auto; display: block; }
 
-        /* === 1. IMMERSIVE HERO (OPEN) === */
+        /* === HERO (KEEPING YOUR CURRENT DESIGN) === */
         .hero { 
-            position: relative; min-height: 100vh; overflow: hidden; display: flex; align-items: center; padding-top: 100px;
+            position: relative; min-height: 100vh; display: flex; align-items: center; padding-top: 100px;
+            background: linear-gradient(rgba(3, 7, 18, 0.5), var(--dark-bg)),
+                        url('assets/images/gutter_helmet_beauty_shot.png') no-repeat center center;
+            background-size: cover;
         }
-        
-        .hero::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 110%;
-            background-image: url('assets/images/gutter.helmet.beauty.shot.png');
-            background-size: cover; background-position: center;
-            filter: brightness(0.6) blur(5px);
-            mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-            z-index: -1; transform: scale(1.1); transition: transform 0.5s ease-out;
-        }
-
-        .hero-text h1 { 
-            font-family: 'Outfit'; font-size: clamp(3rem, 7vw, 6rem); 
-            font-weight: 900; line-height: 0.9; margin-bottom: 30px;
-            color: #fff; text-shadow: 0 5px 20px rgba(0,0,0,0.8);
-        }
-        .hero-text h1 span {
-            display: block; color: var(--aes-green); 
-            text-shadow: 0 0 30px var(--aes-green-glow);
-        }
-
+        .hero-text h1 { font-family: 'Outfit'; font-size: clamp(3rem, 7vw, 6rem); font-weight: 900; line-height: 0.9; margin-bottom: 30px; }
+        .hero-text h1 span { color: var(--aes-green); text-shadow: 0 0 30px var(--aes-green-glow); }
         .hero-form-placeholder {
-            background: rgba(17, 24, 39, 0.7);
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(15px);
-            padding: 40px;
-            border-radius: var(--radius-lg);
+            background: rgba(17, 24, 39, 0.7); border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px); padding: 40px; border-radius: var(--radius-lg);
             width: 100%; max-width: 450px; min-height: 500px; margin-left: auto;
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.8), inset 0 0 30px rgba(0, 119, 200, 0.05);
         }
 
-        /* === 2. SCIENCE SECTION (THE UNBOXED EXPERIENCE) === */
-        .science-section { padding: 150px 0; position: relative; }
+        /* === HIGH-END VECTOR ICONS SECTION === */
+        .icon-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 60px; }
+        .vector-icon-card {
+            padding: 30px; text-align: center; background: rgba(255,255,255,0.02);
+            border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); transition: var(--transition);
+        }
+        .vector-icon-card:hover { transform: translateY(-10px); border-color: var(--aes-green); background: rgba(0, 204, 51, 0.05); }
         
-        /* MOVING VECTOR BACKGROUND GLOWS */
-        .vector-glow {
-            position: absolute; border-radius: 50%; 
-            filter: blur(120px); opacity: 0.3; z-index: -1;
-            animation: move-glow 20s infinite alternate ease-in-out;
-        }
-        .glow-1 { width: 350px; height: 350px; background: var(--aes-blue); top: 15%; left: -15%; }
-        .glow-2 { width: 450px; height: 450px; background: var(--aes-green); bottom: 15%; right: -5%; }
-
-        @keyframes move-glow { 0% { transform: translateY(0) scale(1); } 100% { transform: translateY(-70px) scale(1.1); } }
-
-        /* Floating Technical Graphic with BLUE GLOW */
-        .floating-graphic-tech {
-            width: 100%; border-radius: 20px; transition: var(--transition);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.7), 0 0 40px var(--aes-blue-glow); /* Blue image glow */
-            transform: perspective(1000px) rotateX(2deg);
-        }
-        .floating-graphic-tech:hover { transform: perspective(1000px) rotateX(0deg) scale(1.02); }
-
-        .science-text h2 { font-family: 'Outfit'; font-size: 3.5rem; margin-bottom: 20px; color: #fff; }
-
-        /* GLOWING CHECKMARK BULLETS */
-        .glow-list { list-style: none; margin-top: 40px; }
-        .glow-list li {
-            position: relative; padding-left: 55px; margin-bottom: 20px;
-            font-size: 1.1rem; color: #94A3B8;
-        }
-        .glow-list li::before {
-            content: ''; position: absolute; left: 0; top: 0;
-            width: 32px; height: 32px;
-            background-image: url('assets/images/AES checkmark.png'); /* Green checkmark graphic */
-            background-size: contain; background-repeat: no-repeat;
-            filter: drop-shadow(0 0 10px var(--aes-green-glow)); /* Glowing Bullet */
+        .aura-icon {
+            width: 80px; height: 80px; margin: 0 auto 20px;
+            background: radial-gradient(circle, var(--aes-green) 0%, transparent 70%);
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Outfit'; font-weight: 900; font-size: 1.5rem; color: #fff;
+            border-radius: 50%; box-shadow: 0 0 20px var(--aes-green-glow);
         }
 
-        /* BUTTONS */
-        .btn {
-            padding: 20px 45px; border-radius: 100px; font-family: 'Outfit';
-            font-weight: 800; text-transform: uppercase; cursor: pointer;
-            transition: var(--transition); display: inline-block; text-decoration: none;
-        }
-        .btn-glow {
-            background: var(--aes-green); color: #030712;
-            box-shadow: 0 10px 30px var(--aes-green-glow);
-        }
-        .btn-glow:hover { transform: translateY(-5px) scale(1.05); background: #00E639; box-shadow: 0 0 50px var(--aes-green); }
+        /* === AWARD / SOCIAL PROOF SECTION === */
+        .award-section { padding: 100px 0; background: linear-gradient(to right, transparent, rgba(0, 119, 200, 0.05)); }
+        .award-img { width: 100%; max-width: 400px; filter: drop-shadow(0 0 20px rgba(0, 119, 200, 0.4)); border-radius: 20px; }
 
-        /* REVEAL ON SCROLL */
-        .reveal { opacity: 0; transform: translateY(60px); transition: all 1s ease-out; }
+        /* === REVEAL === */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 1s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        @media (max-width: 1024px) {
-            .grid { grid-template-columns: 1fr; }
-            .hero-text { text-align: center; }
-            .hero-form-placeholder { margin: 50px auto 0; }
+        .btn {
+            padding: 18px 40px; border-radius: 100px; font-family: 'Outfit'; font-weight: 800;
+            text-transform: uppercase; text-decoration: none; display: inline-block;
+            background: var(--aes-green); color: #030712; transition: var(--transition);
         }
+        .btn:hover { transform: scale(1.05); box-shadow: 0 0 30px var(--aes-green); }
+
     </style>
 </head>
 <body>
@@ -156,67 +103,62 @@
 
     <section class="hero">
         <div class="container grid">
-            <div class="col-12 hero-text reveal" style="grid-column: span 7;">
-                <h1>Never Clean Your <span>Gutters Again.</span></h1>
-                <p style="font-size: 1.4rem; color: rgba(255,255,255,0.8); margin-bottom: 40px; max-width: 600px; text-shadow: 0 2px 5px rgba(0,0,0,0.5);">
-                    Experience the 2026 Northwest Ohio standard in home equity protection. Using <b>Surface Tension Physics</b> to keep debris out and water flowing—permanently.
+            <div class="col-12 hero-text">
+                <h1>Never Clean Your <br><span>Gutters Again.</span></h1>
+                <p style="font-size: 1.25rem; color: rgba(255,255,255,0.8); margin-bottom: 35px; max-width: 600px;">
+                    Experience the 2026 Northwest Ohio standard in home equity protection. Using Surface Tension Physics to keep debris out and water flowing—permanently.
                 </p>
-                <a href="#quote" class="btn btn-glow">Get My Free Assessment</a>
+                <a href="#quote" class="btn">Get My Free Assessment</a>
             </div>
-            <div class="col-12 reveal" style="grid-column: span 5;">
+            <div class="col-12">
                 <div class="hero-form-placeholder">
-                    <p style="font-family: monospace; color: rgba(255,255,255,0.4);">[ GHL LEAD FORM WIDGET ]</p>
+                    <p style="font-family: monospace; color: rgba(255,255,255,0.3); text-align: center;">[ GHL LEAD FORM WIDGET ]</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="science-section" id="science">
-        <div class="vector-glow glow-1"></div>
-        <div class="vector-glow glow-2"></div>
+    <section class="container" style="padding: 100px 0;">
+        <div class="icon-grid reveal">
+            <div class="vector-icon-card">
+                <div class="aura-icon">0°</div>
+                <h3 style="font-family: 'Outfit'; margin-bottom: 10px;">Zero Maintenance</h3>
+                <p style="color: #94A3B8; font-size: 0.9rem;">Engineered to handle the heaviest debris loads without ever needing a manual cleaning.</p>
+            </div>
+            <div class="vector-icon-card">
+                <div class="aura-icon">∞</div>
+                <h3 style="font-family: 'Outfit'; margin-bottom: 10px;">Triple Lifetime Warranty</h3>
+                <p style="color: #94A3B8; font-size: 0.9rem;">A permanent, transferable guarantee that protects your home for generations.</p>
+            </div>
+            <div class="vector-icon-card">
+                <div class="aura-icon">100</div>
+                <h3 style="font-family: 'Outfit'; margin-bottom: 10px;">Surface Tension Max</h3>
+                <p style="color: #94A3B8; font-size: 0.9rem;">Utilizing physics to wrap water into the gutter while jettisoning leaves to the ground.</p>
+            </div>
+        </div>
+    </section>
 
+    <section class="award-section reveal">
         <div class="container grid">
-            <div class="col-12 reveal" style="grid-column: span 12; text-align: center; margin-bottom: 80px;">
-                <span style="display: block; color: var(--aes-blue); text-transform: uppercase; letter-spacing: 2px; font-weight: 800; margin-bottom: 15px;">Patented Engineering</span>
-                <h2 style="font-family: 'Outfit'; font-size: 3.5rem;">Physics Over Filters</h2>
+            <div style="grid-column: span 5;">
+                <img src="assets/images/award.jpg" alt="National Award" class="award-img">
             </div>
-            
-            <div class="col-12 reveal" style="grid-column: span 7;" data-parallax="0.2">
-                <img src="assets/images/197_gh_cutaway(callouts).jpg" alt="Science of Gutter Helmet" class="floating-graphic-tech">
-            </div>
-
-            <div class="col-12 science-text reveal" style="grid-column: span 5;">
-                <h3 style="font-family: 'Outfit'; font-size: 2.5rem; margin-bottom: 15px;">Above the Rest</h3>
-                <p style="color: #94A3B8;">Water clings. Debris falls. By engineering the nose-forward design to work with the natural properties of water, Gutter Helmet is the only solution that utilize simple physical dynamics to outsmart nature.</p>
-                
-                <ul class="glow-list">
-                    <li><strong style="color: #fff;">Zero Debris Infiltration:</strong> The textured surface dynamics jettison leaves and pine needles harmlessly to the ground.</li>
-                    <li><strong style="color: #fff;">Triple Lifetime Warranty:</strong> A one-time professional installation that protects your existing system permanently.</li>
-                    <li><strong style="color: #fff;">Helmet Heat Integrated:</strong> Detects freezing temperatures and self-regulates to eliminate destructive ice dams.</li>
-                </ul>
+            <div style="grid-column: span 7;">
+                <h2 style="font-family: 'Outfit'; font-size: 3rem; margin-bottom: 20px;">America's #1 Choice</h2>
+                <p style="font-size: 1.1rem; color: #94A3B8; line-height: 1.8;">
+                    Gutter Helmet has been the gold standard in gutter protection for over 40 years. Our technology is consistently recognized for its performance in extreme climates, making it the most trusted name in Northwest Ohio for homeowners who refuse to compromise on quality.
+                </p>
             </div>
         </div>
     </section>
 
     <script>
-        // Reveal on Scroll
-        const observerOptions = { threshold: 0.15 };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('active');
             });
-        }, observerOptions);
+        }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-        // Simple Parallax for depth
-        window.addEventListener('scroll', () => {
-            const parallaxElements = document.querySelectorAll('[data-parallax]');
-            parallaxElements.forEach(el => {
-                const speed = el.getAttribute('data-parallax');
-                const offset = window.pageYOffset * speed;
-                el.style.transform = `perspective(1000px) rotateX(1deg) translateY(${offset}px)`;
-            });
-        });
     </script>
 </body>
 </html>
