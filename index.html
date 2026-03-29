@@ -29,21 +29,29 @@
             position: relative;
         }
 
-        /* === WATER DROPS BACKGROUND === */
+        /* === UPGRADE: ANIMATED FALLING WATER DROPS === */
         body::before {
             content: "";
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            /* Creating a water drop pattern using radial gradients */
+            /* Creating the raindrop texture */
             background-image: 
-                radial-gradient(circle at 10% 10%, rgba(0, 119, 200, 0.1) 1px, transparent 1px),
-                radial-gradient(circle at 30% 50%, rgba(0, 119, 200, 0.08) 2px, transparent 2px),
-                radial-gradient(circle at 70% 20%, rgba(0, 119, 200, 0.12) 1px, transparent 1px),
-                radial-gradient(circle at 90% 80%, rgba(0, 119, 200, 0.08) 3px, transparent 3px),
-                radial-gradient(circle at 50% 90%, rgba(0, 119, 200, 0.1) 2px, transparent 2px);
-            background-size: 200px 200px;
+                radial-gradient(circle at 10% 10%, rgba(0, 119, 200, 0.15) 3px, transparent 3px), /* Increased size to 3px */
+                radial-gradient(circle at 30% 50%, rgba(0, 119, 200, 0.1) 4px, transparent 4px), /* Increased size to 4px */
+                radial-gradient(circle at 70% 20%, rgba(0, 119, 200, 0.18) 3px, transparent 3px),
+                radial-gradient(circle at 90% 80%, rgba(0, 119, 200, 0.12) 5px, transparent 5px), /* Increased size to 5px */
+                radial-gradient(circle at 50% 90%, rgba(0, 119, 200, 0.15) 4px, transparent 4px);
+            background-size: 300px 300px; /* Increased size to accommodate larger drops */
             z-index: -1;
             pointer-events: none;
+            /* Animation triggers */
+            animation: fall 10s linear infinite;
+        }
+
+        /* Animation keyframes for falling effect */
+        @keyframes fall {
+            from { background-position: 0px 0px; }
+            to { background-position: 0px 300px; } /* Must match background-size height */
         }
 
         .container { width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 5%; }
@@ -188,7 +196,25 @@
         </div>
     </section>
 
-    <section class="container"><div class="icon-grid reveal"><div class="icon-card"><div class="aura-icon">0°</div><h3>Zero Maintenance</h3><p style="color: #94A3B8; margin-top:15px;">Engineered to handle the heaviest debris loads without ever needing a manual cleaning.</p></div><div class="icon-card"><div class="aura-icon">∞</div><h3>Triple Lifetime Warranty</h3><p style="color: #94A3B8; margin-top:15px;">A permanent, transferable guarantee that protects your home for generations.</p></div><div class="icon-card"><div class="aura-icon">100</div><h3>Surface Tension Max</h3><p style="color: #94A3B8; margin-top:15px;">Utilizing physics to wrap water into the gutter while jettisoning leaves to the ground.</p></div></div></section>
+    <section class="container">
+        <div class="icon-grid reveal">
+            <div class="icon-card">
+                <div class="aura-icon">0°</div>
+                <h3>Zero Maintenance</h3>
+                <p style="color: #94A3B8; margin-top:15px;">Engineered to handle the heaviest debris loads without ever needing a manual cleaning.</p>
+            </div>
+            <div class="icon-card">
+                <div class="aura-icon">∞</div>
+                <h3>Triple Lifetime Warranty</h3>
+                <p style="color: #94A3B8; margin-top:15px;">A permanent, transferable guarantee that protects your home for generations.</p>
+            </div>
+            <div class="icon-card">
+                <div class="aura-icon">100</div>
+                <h3>Surface Tension Max</h3>
+                <p style="color: #94A3B8; margin-top:15px;">Utilizing physics to wrap water into the gutter while jettisoning leaves to the ground.</p>
+            </div>
+        </div>
+    </section>
 
     <section class="comparison-section"><div class="container grid"><div style="grid-column: span 7;" class="reveal"><img src="assets/images/before_after.png" class="comparison-img"></div><div style="grid-column: span 5;" class="reveal"><span class="badge">Visual Proof</span><h2 style="font-size: 3.5rem; margin-bottom: 25px;">The Reality of <span class="green">Neglect.</span></h2><p>Foundation damage starts at the gutters. Fix the system, not the symptoms.</p></div></div></section>
 
