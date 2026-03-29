@@ -29,18 +29,19 @@
             position: relative;
         }
 
-        /* === ATMOSPHERIC RAIN DROPS === */
+        /* === WATER DROPS BACKGROUND === */
         body::before {
             content: "";
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: repeating-linear-gradient(
-                45deg,
-                transparent,
-                transparent 80px,
-                rgba(0, 119, 200, 0.06) 80px,
-                rgba(0, 119, 200, 0.06) 81px
-            );
+            /* Creating a water drop pattern using radial gradients */
+            background-image: 
+                radial-gradient(circle at 10% 10%, rgba(0, 119, 200, 0.1) 1px, transparent 1px),
+                radial-gradient(circle at 30% 50%, rgba(0, 119, 200, 0.08) 2px, transparent 2px),
+                radial-gradient(circle at 70% 20%, rgba(0, 119, 200, 0.12) 1px, transparent 1px),
+                radial-gradient(circle at 90% 80%, rgba(0, 119, 200, 0.08) 3px, transparent 3px),
+                radial-gradient(circle at 50% 90%, rgba(0, 119, 200, 0.1) 2px, transparent 2px);
+            background-size: 200px 200px;
             z-index: -1;
             pointer-events: none;
         }
@@ -51,18 +52,23 @@
         h1, h2, h3, h4 { font-family: 'Outfit'; line-height: 1; }
         .green { color: var(--aes-green); text-shadow: 0 0 30px var(--aes-green-glow); }
 
-        /* === NAV BAR === */
+        /* === NAV BAR WITH GLOWING BLUE CAPSULE === */
         header {
             position: fixed; top: 0; width: 100%; z-index: 2000;
-            padding: 15px 0; background: rgba(3, 7, 18, 0.85);
-            backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 15px 0;
+            background: rgba(3, 7, 18, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
         .header-content { display: flex; justify-content: space-between; align-items: center; }
         .logo-img { height: 55px; width: auto; }
 
         .dealer-capsule {
-            background: rgba(0, 119, 200, 0.15); border: 1px solid var(--aes-blue);
-            padding: 8px 20px; border-radius: 100px; text-align: right;
+            background: rgba(0, 119, 200, 0.15);
+            border: 1px solid var(--aes-blue);
+            padding: 8px 20px;
+            border-radius: 100px;
+            text-align: right;
             box-shadow: 0 0 15px var(--aes-blue-glow);
             animation: pulse-blue 3s infinite ease-in-out;
         }
@@ -70,12 +76,8 @@
             0%, 100% { box-shadow: 0 0 15px var(--aes-blue-glow); }
             50% { box-shadow: 0 0 25px var(--aes-blue); }
         }
-        .dealer-title-glow {
-            color: var(--aes-green); text-shadow: 0 0 15px var(--aes-green-glow);
-            font-family: 'Outfit'; font-weight: 700; font-size: 0.95rem;
-        }
 
-        /* === HERO === */
+        /* === HERO SECTION === */
         .hero { 
             position: relative; min-height: 110vh; display: flex; align-items: center; padding-top: 140px; padding-bottom: 60px;
             background: linear-gradient(rgba(3, 7, 18, 0.4), var(--dark-bg)),
@@ -88,10 +90,11 @@
             background: rgba(17, 24, 39, 0.75); border: 1px solid rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(30px); padding: 30px; border-radius: var(--radius-lg);
             width: 100%; max-width: 520px; margin-left: auto;
-            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8); min-height: 750px;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
+            min-height: 750px;
         }
 
-        /* === ICONS === */
+        /* === ICON CARDS === */
         .icon-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 100px 0; }
         .icon-card {
             padding: 40px; text-align: center; background: rgba(255,255,255,0.02);
@@ -106,32 +109,43 @@
             border-radius: 50%; box-shadow: 0 0 30px var(--aes-green-glow);
         }
 
-        /* === COMPARISON === */
+        /* === BEFORE & AFTER === */
         .comparison-section { padding: 120px 0; }
         .comparison-img { width: 100%; border-radius: var(--radius-lg); box-shadow: 0 30px 60px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); }
         .badge { display: inline-block; padding: 8px 16px; border-radius: 50px; background: rgba(0, 119, 200, 0.1); border: 1px solid var(--aes-blue); color: var(--aes-blue); font-weight: 800; font-size: 0.75rem; letter-spacing: 2px; margin-bottom: 20px; text-transform: uppercase; }
 
-        /* === 4 SEASON === */
+        /* === 4 SEASON PROTECTION === */
         .protection-section { padding: 120px 0; background: radial-gradient(circle at center, rgba(0, 119, 200, 0.05), transparent 70%); }
         .protection-diagram { width: 100%; transition: var(--transition); filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5)); }
         .protection-diagram:hover { filter: drop-shadow(0 0 40px var(--aes-blue-glow)); transform: scale(1.02); }
-        .bridge-icon { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; color: #fff; background: radial-gradient(circle, var(--aes-green) 0%, transparent 80%); border: 2px solid var(--aes-green); flex-shrink: 0; margin-top: 3px; box-shadow: 0 0 15px var(--aes-green-glow); }
+        
+        .bridge-icon { 
+            width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; 
+            font-weight: 900; color: #fff; background: radial-gradient(circle, var(--aes-green) 0%, transparent 80%); 
+            border: 2px solid var(--aes-green); flex-shrink: 0; margin-top: 3px; 
+            box-shadow: 0 0 15px var(--aes-green-glow); 
+        }
 
-        /* === SERVICES === */
+        /* === PREMIER SERVICES GRID === */
         .premier-services-section { padding: 120px 0; background: linear-gradient(to bottom, var(--dark-bg), #080C14); }
         .services-console {
-            background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: var(--radius-lg); padding: 80px 60px; backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius-lg);
+            padding: 80px 60px;
+            backdrop-filter: blur(15px);
             box-shadow: 0 40px 100px rgba(0,0,0,0.6);
         }
-        .service-column h4 { color: var(--aes-green); font-size: 1rem; text-transform: uppercase; margin-bottom: 25px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px; }
+        .service-column h4 { color: var(--aes-green); font-size: 1rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 25px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px; }
         .service-list { list-style: none; }
         .service-list li { color: #94A3B8; font-size: 1.1rem; margin-bottom: 10px; transition: 0.3s; }
         .service-list li:hover { color: #fff; transform: translateX(8px); }
 
-        /* === AWARDS & FOOTER === */
+        /* === AWARD BANNER === */
         .award-banner { padding: 120px 0; text-align: center; }
         .award-logo { max-width: 350px; margin-bottom: 30px; filter: drop-shadow(0 0 15px rgba(0, 119, 200, 0.5)); }
+
+        /* === FINAL CTA FORM === */
         .final-cta { padding: 100px 0; background: #030712; }
         .form-full-wrap { max-width: 800px; margin: 0 auto; background: rgba(255, 255, 255, 0.01); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: var(--radius-lg); padding: 50px; box-shadow: 0 50px 100px rgba(0,0,0,0.5); }
 
@@ -152,7 +166,7 @@
             <img src="assets/images/all_exterior_solutions_transparent_logo.png" alt="All Exterior Solutions" class="logo-img">
             <div class="dealer-capsule">
                 <p style="font-size: 0.75rem; color: #fff; font-weight: 800; letter-spacing: 2px;">NW OHIO EXCLUSIVE</p>
-                <p class="dealer-title-glow">Gutter Helmet Dealer</p>
+                <p style="font-family: 'Outfit'; font-weight: 700; color: #fff; font-size: 0.95rem;">Gutter Helmet Dealer</p>
             </div>
         </div>
     </header>
@@ -174,40 +188,15 @@
         </div>
     </section>
 
-    <section class="container">
-        <div class="icon-grid reveal">
-            <div class="icon-card">
-                <div class="aura-icon">0°</div>
-                <h3>Zero Maintenance</h3>
-                <p style="color: #94A3B8; margin-top:15px;">Engineered to handle the heaviest debris loads without ever needing a manual cleaning.</p>
-            </div>
-            <div class="icon-card">
-                <div class="aura-icon">∞</div>
-                <h3>Triple Lifetime Warranty</h3>
-                <p style="color: #94A3B8; margin-top:15px;">A permanent, transferable guarantee that protects your home for generations.</p>
-            </div>
-            <div class="icon-card">
-                <div class="aura-icon">100</div>
-                <h3>Surface Tension Max</h3>
-                <p style="color: #94A3B8; margin-top:15px;">Utilizing physics to wrap water into the gutter while jettisoning leaves to the ground.</p>
-            </div>
-        </div>
-    </section>
+    <section class="container"><div class="icon-grid reveal"><div class="icon-card"><div class="aura-icon">0°</div><h3>Zero Maintenance</h3><p style="color: #94A3B8; margin-top:15px;">Engineered to handle the heaviest debris loads without ever needing a manual cleaning.</p></div><div class="icon-card"><div class="aura-icon">∞</div><h3>Triple Lifetime Warranty</h3><p style="color: #94A3B8; margin-top:15px;">A permanent, transferable guarantee that protects your home for generations.</p></div><div class="icon-card"><div class="aura-icon">100</div><h3>Surface Tension Max</h3><p style="color: #94A3B8; margin-top:15px;">Utilizing physics to wrap water into the gutter while jettisoning leaves to the ground.</p></div></div></section>
 
-    <section class="comparison-section">
-        <div class="container grid">
-            <div style="grid-column: span 7;" class="reveal"><img src="assets/images/before_after.png" class="comparison-img"></div>
-            <div style="grid-column: span 5;" class="reveal">
-                <span class="badge">Visual Proof</span>
-                <h2 style="font-size: 3.5rem; margin-bottom: 25px;">The Reality of <span class="green">Neglect.</span></h2>
-                <p>Foundation damage starts at the gutters. Fix the system, not the symptoms.</p>
-            </div>
-        </div>
-    </section>
+    <section class="comparison-section"><div class="container grid"><div style="grid-column: span 7;" class="reveal"><img src="assets/images/before_after.png" class="comparison-img"></div><div style="grid-column: span 5;" class="reveal"><span class="badge">Visual Proof</span><h2 style="font-size: 3.5rem; margin-bottom: 25px;">The Reality of <span class="green">Neglect.</span></h2><p>Foundation damage starts at the gutters. Fix the system, not the symptoms.</p></div></div></section>
 
     <section class="protection-section">
         <div class="container grid">
-            <div style="grid-column: span 7;" class="reveal"><img src="assets/images/four_season.png" alt="Engineering Diagram" class="protection-diagram"></div>
+            <div style="grid-column: span 7;" class="reveal">
+                <img src="assets/images/four_season.png" alt="Engineering Diagram" class="protection-diagram">
+            </div>
             <div style="grid-column: span 5;" class="reveal">
                 <span class="badge" style="border-color: var(--aes-green); color: var(--aes-green);">Engineering</span>
                 <h2 style="font-size: 3.5rem; margin-bottom: 35px;"><span class="green">4 Season</span> Protection.</h2>
@@ -222,44 +211,15 @@
         </div>
     </section>
 
-    <section class="premier-services-section reveal">
-        <div class="container">
-            <div class="services-console">
-                <div class="grid">
-                    <div style="grid-column: span 4; text-align: center;">
-                        <img src="assets/images/all_exterior_solutions_transparent_logo.png" style="max-width: 250px; margin-bottom: 30px;">
-                        <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Ohio's <span class="green">Premier</span> Authority</h2>
-                    </div>
-                    <div style="grid-column: span 8; display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px;" class="services-grid">
-                        <div class="service-column"><h4>Roofing</h4><ul class="service-list"><li>Replacement</li><li>Repair</li><li>Metal & Asphalt</li></ul></div>
-                        <div class="service-column"><h4>Siding</h4><ul class="service-list"><li>Vinyl & Fiber Cement</li><li>Installation</li></ul></div>
-                        <div class="service-column"><h4>Gutters</h4><ul class="service-list"><li>Seamless Systems</li><li>Cleaning & Repair</li></ul></div>
-                        <div class="service-column"><h4>Windows</h4><ul class="service-list"><li>Energy-Efficient</li><li>Custom Fit</li></ul></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <section class="premier-services-section reveal"><div class="container"><div class="services-console"><div class="grid"><div style="grid-column: span 4; text-align: center;"><img src="assets/images/all_exterior_solutions_transparent_logo.png" style="max-width: 250px; margin-bottom: 30px;"><h2 style="font-size: 2.5rem; margin-bottom: 20px;">Ohio's <span class="green">Premier</span> Authority</h2></div><div style="grid-column: span 8; display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px;" class="services-grid"><div class="service-column"><h4>Roofing</h4><ul class="service-list"><li>Replacement</li><li>Repair</li><li>Metal & Asphalt</li></ul></div><div class="service-column"><h4>Siding</h4><ul class="service-list"><li>Vinyl & Fiber Cement</li><li>Installation</li></ul></div><div class="service-column"><h4>Gutters</h4><ul class="service-list"><li>Seamless Systems</li><li>Cleaning & Repair</li></ul></div><div class="service-column"><h4>Windows</h4><ul class="service-list"><li>Energy-Efficient</li><li>Custom Fit</li></ul></div></div></div></div></div></section>
 
     <section class="award-banner reveal">
         <div class="container"><img src="assets/images/award.jpg" alt="America's #1 Choice" class="award-logo"><h2 style="font-size: 3rem; margin-bottom: 20px;">America's #1 Choice</h2></div>
     </section>
 
-    <section class="final-cta reveal">
-        <div class="container">
-            <div class="form-full-wrap">
-                <div style="text-align: center; margin-bottom: 40px;">
-                    <h2 style="font-size: 2.5rem; margin-bottom: 10px;">Protect Your Home Forever</h2>
-                    <p style="color: var(--aes-blue); font-weight: 800; letter-spacing: 1px;">FINAL ASSESSMENT REQUEST</p>
-                </div>
-                <iframe src="https://link.jvrtechllc.com/widget/form/cU3ghcJBJdzmzrSbkB2g" style="width:100%;height:650px;border:none;border-radius:12px" id="inline-secondary-cU3ghcJBJdzmzrSbkB2g" data-form-id="cU3ghcJBJdzmzrSbkB2g" title="gutter helmet"></iframe>
-            </div>
-        </div>
-    </section>
+    <section class="final-cta reveal"><div class="container"><div class="form-full-wrap"><div style="text-align: center; margin-bottom: 40px;"><h2 style="font-size: 2.5rem; margin-bottom: 10px;">Protect Your Home Forever</h2><p style="color: var(--aes-blue); font-weight: 800; letter-spacing: 1px;">FINAL ASSESSMENT REQUEST</p></div><iframe src="https://link.jvrtechllc.com/widget/form/cU3ghcJBJdzmzrSbkB2g" style="width:100%;height:650px;border:none;border-radius:12px" id="inline-secondary-cU3ghcJBJdzmzrSbkB2g" data-form-id="cU3ghcJBJdzmzrSbkB2g" title="gutter helmet"></iframe></div></div></section>
 
-    <footer style="text-align: center; padding: 80px 0; color: #475569; font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.05);">
-        <p>&copy; 2026 All Exterior Solutions | Exclusive Gutter Helmet Dealer for NW Ohio</p>
-    </footer>
+    <footer style="text-align: center; padding: 80px 0; color: #475569; font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.05);"><p>&copy; 2026 All Exterior Solutions | Exclusive Gutter Helmet Dealer for NW Ohio</p></footer>
 
     <script src="https://link.jvrtechllc.com/js/form_embed.js"></script>
     <script>
