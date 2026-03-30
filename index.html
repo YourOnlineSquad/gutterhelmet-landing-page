@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,13 +16,20 @@
             --dark-bg: #030712; 
             --radius-lg: 32px;
             --transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            
+            /* Ambient Fog Gradient */
+            --fog-gradient: radial-gradient(circle at top left, #08101E 0%, transparent 40%),
+                            radial-gradient(circle at bottom right, #050B14 0%, transparent 50%);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
+        
         body { 
             font-family: 'Inter', sans-serif; 
             background-color: var(--dark-bg); 
+            background-image: var(--fog-gradient); /* Applies the fog */
+            background-attachment: fixed;
             color: #F8FAFC; 
             overflow-x: hidden;
             line-height: 1.5;
@@ -30,65 +37,30 @@
         }
 
         /* =========================================================================
-           REALISTIC MULTI-LAYER FALLING WATER DROPS (Updated Sections)
+           NEON GLOW AURAS
            ========================================================================= */
+        .glow-wrapper {
+            position: relative;
+        }
         
-        /* Base configuration for all rain layers */
-        .rain-layer {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none; /* Allows text to be clickable */
-            z-index: -1;          /* Keeps rain behind all content */
-            background-repeat: repeat;
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.15; /* Subtle intensity */
+        }
+        
+        .glow-orb.blue {
+            background-color: var(--aes-blue);
+        }
+        
+        .glow-orb.green {
+            background-color: var(--aes-green);
         }
 
-        /* 1. LAYER 1: FAR RAIN (Smallest, most transparent, slowest) */
-        .rain-far {
-            background-image:
-                radial-gradient(circle at 15% 15%, rgba(0, 80, 150, 0.05) 2px, transparent 2px),
-                radial-gradient(circle at 35% 55%, rgba(0, 80, 150, 0.05) 3px, transparent 3px),
-                radial-gradient(circle at 75% 25%, rgba(0, 80, 150, 0.05) 2px, transparent 2px),
-                radial-gradient(circle at 95% 85%, rgba(0, 80, 150, 0.05) 3px, transparent 3px);
-            background-size: 300px 300px;
-            animation: fall 22s linear infinite; /* Slower fall */
-        }
-
-        /* 2. LAYER 2: MID RAIN (Original size, original brightness, original speed) */
-        .rain-mid {
-            background-image:
-                radial-gradient(circle at 10% 10%, rgba(0, 119, 200, 0.12) 4px, transparent 4px),
-                radial-gradient(circle at 30% 50%, rgba(0, 119, 200, 0.1) 5px, transparent 5px),
-                radial-gradient(circle at 70% 20%, rgba(0, 119, 200, 0.15) 4px, transparent 4px),
-                radial-gradient(circle at 90% 80%, rgba(0, 119, 200, 0.12) 6px, transparent 6px),
-                radial-gradient(circle at 50% 90%, rgba(0, 119, 200, 0.12) 5px, transparent 5px);
-            background-size: 300px 300px;
-            animation: fall 11s linear infinite; /* Medium fall */
-        }
-
-        /* 3. LAYER 3: NEAR RAIN (Largest, brightest/most opaque, fastest) */
-        .rain-near {
-            background-image:
-                radial-gradient(circle at 20% 20%, rgba(0, 119, 200, 0.2) 7px, transparent 7px),
-                radial-gradient(circle at 40% 60%, rgba(0, 119, 200, 0.18) 8px, transparent 8px),
-                radial-gradient(circle at 80% 30%, rgba(0, 119, 200, 0.22) 7px, transparent 7px),
-                radial-gradient(circle at 60% 95%, rgba(0, 119, 200, 0.2) 8px, transparent 8px),
-                radial-gradient(circle at 95% 10%, rgba(0, 119, 200, 0.2) 7px, transparent 7px);
-            background-size: 300px 300px;
-            animation: fall 6s linear infinite; /* Fast fall */
-        }
-
-        /* Define the falling animation (unchanged) */
-        @keyframes fall {
-            from { background-position: 0px 0px; }
-            to { background-position: 0px 300px; }
-        }
-
-        /* =========================================================================
-           END REALISTIC RAIN
-           ========================================================================= */
+        /* ========================================================================= */
 
         .container { width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 5%; }
         .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 50px; align-items: center; }
@@ -118,7 +90,8 @@
         /* === HERO === */
         .hero { 
             position: relative; min-height: 100vh; display: flex; align-items: center; padding-top: 140px; padding-bottom: 60px;
-            background: linear-gradient(rgba(3, 7, 18, 0.4), var(--dark-bg)), url('assets/images/gutter_helmet_beauty_shot.png') no-repeat center center;
+            /* Added fog gradient to the hero background image blend */
+            background: linear-gradient(rgba(3, 7, 18, 0.6), var(--dark-bg)), url('assets/images/gutter_helmet_beauty_shot.png') no-repeat center center;
             background-size: cover; background-attachment: fixed;
         }
         .hero-text h1 { font-size: clamp(3rem, 6.5vw, 5rem); font-weight: 900; margin-bottom: 25px;}
@@ -126,6 +99,7 @@
             background: rgba(17, 24, 39, 0.75); border: 1px solid rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(30px); padding: 30px; border-radius: var(--radius-lg);
             width: 100%; max-width: 520px; margin-left: auto; box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
+            position: relative; /* For glow-orb */
         }
 
         /* === WIDESCREEN VIDEO PLACEHOLDER === */
@@ -137,10 +111,10 @@
         }
         .video-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
-        /* === YOUTUBE SHORTS STRICT CONTAINER (FIX) === */
+        /* === YOUTUBE SHORTS STRICT CONTAINER === */
         .shorts-container {
             width: 100%;
-            max-width: 340px; /* Locks it to phone-size on computers so it doesn't get huge */
+            max-width: 340px; 
             aspect-ratio: 9 / 16;
             margin: 0 auto;
             border-radius: 16px;
@@ -165,7 +139,7 @@
         .bridge-icon { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; color: #fff; background: radial-gradient(circle, var(--aes-green) 0%, transparent 80%); border: 2px solid var(--aes-green); flex-shrink: 0; margin-top: 3px; box-shadow: 0 0 15px var(--aes-green-glow); }
 
         /* === PREMIER SERVICES CONSOLE === */
-        .premier-services-section { padding: 120px 0; background: linear-gradient(to bottom, var(--dark-bg), #080C14); }
+        .premier-services-section { padding: 120px 0; }
         .services-console {
             background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: var(--radius-lg); padding: 80px 60px; backdrop-filter: blur(15px);
@@ -174,7 +148,7 @@
 
         /* === AWARDS & CTA === */
         .award-logo { max-width: 350px; margin-bottom: 30px; filter: drop-shadow(0 0 15px rgba(0, 119, 200, 0.5)); mix-blend-mode: screen; }
-        .form-full-wrap { max-width: 800px; margin: 0 auto; background: rgba(255, 255, 255, 0.01); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: var(--radius-lg); padding: 50px; box-shadow: 0 50px 100px rgba(0,0,0,0.5); }
+        .form-full-wrap { max-width: 800px; margin: 0 auto; background: rgba(255, 255, 255, 0.01); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: var(--radius-lg); padding: 50px; box-shadow: 0 50px 100px rgba(0,0,0,0.5); position: relative; }
         .call-btn { display: inline-block; background: var(--aes-green); color: #030712; font-family: 'Outfit'; font-weight: 900; font-size: 1.5rem; padding: 18px 50px; border-radius: 50px; text-decoration: none; box-shadow: 0 10px 30px var(--aes-green-glow); transition: 0.3s; margin-top: 15px; }
         .call-btn:hover { transform: translateY(-5px); box-shadow: 0 15px 40px var(--aes-green-glow); }
 
@@ -182,7 +156,7 @@
         .reveal.active { opacity: 1; transform: translateY(0); }
 
         /* =========================================================================
-           MOBILE OVERRIDE: FORCES STACKING
+           MOBILE OVERRIDE
            ========================================================================= */
         @media (max-width: 1024px) {
             .grid { display: flex !important; flex-direction: column !important; gap: 40px !important; }
@@ -193,17 +167,14 @@
             p { text-align: center !important; }
             .badge { display: table !important; margin: 0 auto 20px auto !important; }
 
-            /* Nav Restructure */
             .header-content { flex-direction: column; gap: 15px; }
             .nav-right { flex-direction: column; gap: 15px; width: 100%; text-align: center; }
             .nav-phone span { text-align: center !important; }
             .dealer-capsule { width: 100%; text-align: center; }
 
-            /* HERO FIX: Increased padding-top to 260px to clear the taller stacked header */
             .hero { padding-top: 260px !important; min-height: auto !important; background-attachment: scroll !important; }
             .hero-form-console { margin: 30px auto 0 !important; width: 100% !important; min-height: auto !important; padding: 20px !important; }
 
-            /* 4-Season Align */
             .protection-section ul { display: inline-block !important; text-align: left !important; margin: 0 auto !important; max-width: 320px; }
             .protection-section ul li { justify-content: flex-start !important; margin-bottom: 15px !important; }
             
@@ -214,9 +185,6 @@
 </head>
 <body>
 
-    <div class="rain-layer rain-far"></div>
-    <div class="rain-layer rain-mid"></div>
-    <div class="rain-layer rain-near"></div>
     <header>
         <div class="container header-content">
             <img src="assets/images/all_exterior_solutions_transparent_logo.png" alt="All Exterior Solutions" class="logo-img">
@@ -241,7 +209,9 @@
                     Experience the 2026 Northwest Ohio standard in home protection. Using <b>Surface Tension Physics</b> to keep debris out and water flowing—permanently.
                 </p>
             </div>
-            <div class="reveal active" style="grid-column: span 6;">
+            <div class="reveal active glow-wrapper" style="grid-column: span 6;">
+                <div class="glow-orb blue" style="top: 50%; left: 50%; transform: translate(-50%, -50%); width: 600px; height: 600px;"></div>
+                
                 <div class="hero-form-console">
                     <h3 style="font-size: 1.8rem; margin-bottom: 25px; text-align: center;">Secure Your Assessment</h3>
                     <iframe src="https://link.jvrtechllc.com/widget/form/cU3ghcJBJdzmzrSbkB2g" style="width:100%;height:700px;border:none;border-radius:12px" title="gutter helmet"></iframe>
@@ -258,13 +228,15 @@
         </div>
     </section>
 
-    <section class="container reveal" style="padding: 80px 0;">
-        <div style="text-align: center; margin-bottom: 40px;">
+    <section class="container reveal glow-wrapper" style="padding: 80px 0;">
+        <div class="glow-orb green" style="top: 50%; left: 50%; transform: translate(-50%, -50%); width: 800px; height: 500px;"></div>
+        
+        <div style="text-align: center; margin-bottom: 40px; position: relative;">
             <span class="badge">Real Results</span>
             <h2 style="font-size: 3.5rem; margin-bottom: 25px;">What Our <span class="green">Customers</span> Say</h2>
             <p style="color: #94A3B8; font-size: 1.2rem; max-width: 800px; margin: 0 auto;">Gutter Helmet Toledo Ohio Testimonial | “I Was The Doubter And It Actually Worked” Northwest Ohio.</p>
         </div>
-        <div style="max-width: 800px; margin: 0 auto; width: 100%;">
+        <div style="max-width: 800px; margin: 0 auto; width: 100%; position: relative;">
             <div class="video-box">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/OqrRZ6VIiK8?si=ivrFta8wqVTX4uzH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
@@ -282,9 +254,11 @@
         </div>
     </section>
 
-    <section class="protection-section reveal" style="padding: 80px 0;">
+    <section class="protection-section reveal glow-wrapper" style="padding: 80px 0;">
+        <div class="glow-orb blue" style="top: 50%; left: 25%; transform: translate(-50%, -50%); width: 600px; height: 600px;"></div>
+        
         <div class="container grid">
-            <div style="grid-column: span 7;">
+            <div style="grid-column: span 7; position: relative;">
                 <img src="assets/images/four_season.png" alt="Engineering Diagram" class="protection-diagram">
             </div>
             <div style="grid-column: span 5;">
@@ -325,7 +299,9 @@
         </div>
     </section>
 
-    <section class="final-cta reveal" style="padding: 80px 0;">
+    <section class="final-cta reveal glow-wrapper" style="padding: 80px 0;">
+        <div class="glow-orb green" style="top: 50%; left: 50%; transform: translate(-50%, -50%); width: 800px; height: 800px;"></div>
+        
         <div class="container">
             <div class="form-full-wrap">
                 <div style="text-align: center; margin-bottom: 40px;">
