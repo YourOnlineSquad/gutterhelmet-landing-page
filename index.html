@@ -1,213 +1,282 @@
-diff --git a/index.html b/index.html
-index 1a8c678f7f51f430965cb25e062a7bcc034aa196..7db6b0f71c273b3912ab70a3c03c1f848ae63763 100644
---- a/index.html
-+++ b/index.html
-@@ -1,148 +1,178 @@
  <!DOCTYPE html>
- <html lang="en">
- <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Your Online Squad | Premium Digital Growth for Service Businesses</title>
-   <meta name="description" content="Your Online Squad builds premium websites, SEO campaigns, and local visibility systems for service businesses that need more qualified leads.">
-   <link rel="stylesheet" href="styles.css">
- </head>
- <body class="home-page">
-   <header class="site-header">
-     <div class="container header-inner">
-       <a class="brand-logo" href="index.html" aria-label="Your Online Squad home">Your Online Squad</a>
-       <nav class="primary-nav" aria-label="Primary navigation">
-         <a href="index.html" aria-current="page">Home</a>
-         <a href="who-we-help.html">Who We Help</a>
-         <a href="services.html">Services</a>
-         <a href="plans.html">Plans</a>
-         <a href="company.html">Company</a>
-         <a href="blog.html">Blog</a>
-       </nav>
--      <a class="button button-primary header-cta" href="contact.html">Book a Strategy Call</a>
-+      <a class="button button-primary header-cta" href="contact.html">Contact</a>
-     </div>
-   </header>
- 
-   <main class="main">
-     <section class="section hero-section" aria-labelledby="home-hero-title">
-       <div class="container hero-grid">
-         <div class="hero-copy">
--          <p class="eyebrow">Premium Growth Systems</p>
-+          <p class="eyebrow">PREMIUM GROWTH SYSTEMS</p>
-           <h1 class="hero-title" id="home-hero-title">Build a website presence that earns trust before the first call.</h1>
-           <p class="hero-text">We help service businesses launch polished, conversion-focused digital foundations with clean messaging, local search alignment, and a premium customer impression.</p>
-           <div class="hero-actions">
-             <a class="button button-primary" href="contact.html">Start Your Project</a>
-             <a class="button button-secondary" href="services.html">View Services</a>
-           </div>
-+          <ul class="hero-proof" aria-label="Key trust points">
-+            <li>Trusted by Local Service Teams</li>
-+            <li>Structured for Lead Quality</li>
-+            <li>Built for SEO Foundations</li>
-+          </ul>
-         </div>
-         <div class="hero-media" aria-hidden="true">
--          <div class="media-card">Project Snapshot Panel</div>
-+          <div class="media-card">
-+            <span class="media-label">Premium Homepage Framework</span>
-+            <div class="media-shell"></div>
-+          </div>
-         </div>
-       </div>
-     </section>
- 
-     <section class="section trust-bar" aria-label="Trust indicators">
-       <div class="container">
--        <div class="trust-grid grid-3">
-+        <div class="trust-grid">
-           <div class="trust-item">Trusted by Local Service Teams</div>
-           <div class="trust-item">Structured for Lead Quality</div>
-           <div class="trust-item">Built for SEO Foundations</div>
-+          <div class="trust-item">Designed for Premium Credibility</div>
-         </div>
-       </div>
-     </section>
- 
-     <section class="section services-section" id="services" aria-labelledby="services-title">
-       <div class="container">
-         <div class="section-heading">
--          <p class="eyebrow">Services</p>
-+          <p class="eyebrow">SERVICES</p>
-           <h2 id="services-title">Focused services for businesses that need stronger inquiries.</h2>
-           <p>Each service is designed to improve trust, visibility, and conversion so your website attracts buyers who are ready to move forward.</p>
-         </div>
--        <div class="services-grid grid-3">
--          <article class="service-card">
-+        <div class="services-grid">
-+          <article class="card service-card">
-+            <div class="card-media" aria-hidden="true"></div>
-             <h3>SEO Services</h3>
-             <p>Increase qualified traffic with technical cleanup, content targeting, and local authority signals that support sustained visibility.</p>
--            <div class="card-media-placeholder" aria-hidden="true">SEO Visibility Panel</div>
-             <a class="button button-secondary" href="seo-services.html">Explore SEO</a>
-           </article>
--          <article class="service-card">
-+          <article class="card service-card">
-+            <div class="card-media" aria-hidden="true"></div>
-             <h3>Website Design</h3>
-             <p>Create a polished digital presence with semantic layouts, clear service positioning, and conversion-friendly user flow.</p>
--            <div class="card-media-placeholder" aria-hidden="true">Website Layout Panel</div>
-             <a class="button button-secondary" href="web-design.html">Explore Web Design</a>
-           </article>
--          <article class="service-card">
-+          <article class="card service-card">
-+            <div class="card-media" aria-hidden="true"></div>
-             <h3>Google Business Profile</h3>
-             <p>Strengthen map visibility and local trust with profile optimization and supporting website structure for service-area intent.</p>
--            <div class="card-media-placeholder" aria-hidden="true">Local Presence Panel</div>
-             <a class="button button-secondary" href="google-business-profile.html">Explore Local Visibility</a>
-           </article>
-         </div>
-       </div>
-     </section>
- 
-     <section class="section process-section" aria-labelledby="process-title">
-       <div class="container">
-         <div class="section-heading">
--          <p class="eyebrow">Process</p>
-+          <p class="eyebrow">PROCESS</p>
-           <h2 id="process-title">A streamlined delivery path from strategy to launch.</h2>
-           <p>Our workflow keeps each build practical, structured, and aligned with lead quality goals from day one.</p>
-         </div>
--        <div class="process-grid grid-3">
--          <article class="process-card">
--            <p class="step-number">01</p>
-+        <div class="process-grid">
-+          <article class="card process-card">
-+            <p class="step-number">STEP 01</p>
-             <h3>Clarify Positioning</h3>
-             <p>We align your offer, market focus, and trust points into a message framework that guides every page.</p>
-           </article>
--          <article class="process-card">
--            <p class="step-number">02</p>
-+          <article class="card process-card">
-+            <p class="step-number">STEP 02</p>
-             <h3>Build the Foundation</h3>
-             <p>We implement semantic page structure, responsive sections, and conversion-ready layouts with consistent styling.</p>
-           </article>
--          <article class="process-card">
--            <p class="step-number">03</p>
-+          <article class="card process-card">
-+            <p class="step-number">STEP 03</p>
-             <h3>Refine for Results</h3>
-             <p>We sharpen service copy, strengthen CTAs, and tune trust signals so visitors convert with higher intent.</p>
-           </article>
-         </div>
-       </div>
-     </section>
- 
-+    <section class="section value-section" aria-labelledby="value-title">
-+      <div class="container value-grid">
-+        <div class="value-copy">
-+          <p class="eyebrow">WHY CHOOSE US</p>
-+          <h2 id="value-title">We blend premium presentation with practical growth systems.</h2>
-+          <p>Your Online Squad combines design clarity, content structure, and local visibility strategy to help service businesses stand out and convert serious opportunities.</p>
-+          <ul>
-+            <li>Semantic front-end structure that stays scalable as your content grows</li>
-+            <li>Clear section architecture for trust, offer clarity, and conversion momentum</li>
-+            <li>A polished visual system that supports long-term marketing performance</li>
-+          </ul>
-+        </div>
-+        <div class="media-frame" aria-hidden="true">
-+          <p class="frame-title">Conversion Confidence Panel</p>
-+          <div class="frame-metric">Structured for clarity, trust, and stronger lead intent across every major homepage section.</div>
-+        </div>
-+      </div>
-+    </section>
-+
-     <section class="section cta-section" aria-labelledby="cta-title">
-       <div class="container cta-inner">
-         <div class="cta-copy">
--          <p class="eyebrow">Get Started</p>
-+          <p class="eyebrow">GET STARTED</p>
-           <h2 id="cta-title">Ready to launch a cleaner, higher-converting homepage?</h2>
-           <p>Let’s build a digital foundation that looks premium, communicates confidence, and supports lead quality growth.</p>
-         </div>
-         <div class="cta-actions">
-           <a class="button button-primary" href="contact.html">Schedule a Call</a>
--          <a class="button button-secondary" href="about.html">Meet the Team</a>
-+          <a class="button button-secondary" href="company.html">Meet the Team</a>
-         </div>
-       </div>
-     </section>
-   </main>
- 
-   <footer class="site-footer">
-     <div class="container footer-grid">
-       <div class="footer-brand">
-         <a class="brand-logo" href="index.html">Your Online Squad</a>
--        <p>Premium websites and local marketing systems for service businesses that need qualified leads.</p>
-+        <p>Premium websites and local marketing systems for service businesses.</p>
-+        <p>Built for companies that need to convert trust into calls, consultations, and qualified projects.</p>
-       </div>
-       <div class="footer-nav">
-         <h3>Navigation</h3>
--        <a href="services.html">Services</a>
--        <a href="who-we-help.html">Who We Help</a>
--        <a href="plans.html">Plans</a>
--        <a href="blog.html">Blog</a>
-+        <a href="seo-services.html">SEO Services</a>
-+        <a href="web-design.html">Web Design</a>
-+        <a href="google-business-profile.html">Google Business Profile</a>
-+        <a href="about.html">About</a>
-+        <a href="contact.html">Contact</a>
-       </div>
-       <div class="footer-contact">
-         <h3>Contact</h3>
--        <a href="contact.html">Contact Page</a>
--        <a href="mailto:hello@youronlinesquad.com">hello@youronlinesquad.com</a>
--        <a href="tel:15551234567">(555) 123-4567</a>
-+        <p>hello@youronlinesquad.com</p>
-+        <p>(555) 123-4567</p>
-+        <p>Mon–Fri • 9:00 AM–5:00 PM</p>
-       </div>
-     </div>
-   </footer>
- </body>
- </html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gutter Helmet | All Exterior Solutions | NW Ohio</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --aes-blue: #0077C8;
+            --aes-green: #00CC33;
+            --aes-green-glow: rgba(0, 204, 51, 0.4);
+            --aes-blue-glow: rgba(0, 119, 200, 0.5);
+            --dark-bg: #030712; 
+            --radius-lg: 32px;
+            --transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--dark-bg); 
+            color: #F8FAFC; 
+            overflow-x: hidden;
+            line-height: 1.5;
+        }
+
+        /* === RAINDROP ANIMATION === */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                radial-gradient(circle at 10% 10%, rgba(0, 119, 200, 0.15) 3px, transparent 3px),
+                radial-gradient(circle at 30% 50%, rgba(0, 119, 200, 0.1) 4px, transparent 4px),
+                radial-gradient(circle at 70% 20%, rgba(0, 119, 200, 0.18) 3px, transparent 3px),
+                radial-gradient(circle at 90% 80%, rgba(0, 119, 200, 0.12) 5px, transparent 5px);
+            background-size: 300px 300px;
+            z-index: -1;
+            pointer-events: none;
+            animation: fall 10s linear infinite;
+        }
+        @keyframes fall { from { background-position: 0px 0px; } to { background-position: 0px 300px; } }
+
+        .container { width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 5%; }
+        .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 50px; align-items: center; }
+
+        h1, h2, h3, h4 { font-family: 'Outfit'; line-height: 1.1; }
+        .green { color: var(--aes-green); text-shadow: 0 0 30px var(--aes-green-glow); }
+
+        /* === NAV BAR === */
+        header {
+            position: fixed; top: 0; width: 100%; z-index: 2000;
+            padding: 15px 0; background: rgba(3, 7, 18, 0.85);
+            backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .header-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo-img { height: 50px; width: auto; }
+        .dealer-capsule {
+            background: rgba(0, 119, 200, 0.15); border: 1px solid var(--aes-blue);
+            padding: 8px 20px; border-radius: 100px; text-align: right;
+            box-shadow: 0 0 15px var(--aes-blue-glow);
+        }
+        .dealer-title-glow { color: var(--aes-green); text-shadow: 0 0 15px var(--aes-green-glow); font-weight: 700; font-size: 0.95rem; }
+
+        /* === HERO === */
+        .hero { 
+            position: relative; min-height: 100vh; display: flex; align-items: center; padding-top: 120px; padding-bottom: 60px;
+            background: linear-gradient(rgba(3, 7, 18, 0.5), var(--dark-bg)), url('assets/images/gutter_helmet_beauty_shot.png') no-repeat center center;
+            background-size: cover;
+        }
+        .hero-text h1 { font-size: 4.5rem; font-weight: 900; margin-bottom: 25px;}
+        .hero-form-console {
+            background: rgba(17, 24, 39, 0.8); border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px); padding: 30px; border-radius: var(--radius-lg);
+            width: 100%; max-width: 500px; margin-left: auto; box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
+        }
+
+        /* === VIDEO WRAPPER === */
+        .video-box { 
+            position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; 
+            border-radius: 16px; background: #000; border: 1px solid rgba(255,255,255,0.1); 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4); width: 100%;
+        }
+        .video-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+        /* === ICONS === */
+        .icon-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 80px 0; }
+        .icon-card { padding: 40px; text-align: center; background: rgba(255,255,255,0.02); border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); }
+        .aura-icon { width: 80px; height: 80px; margin: 0 auto 20px; background: radial-gradient(circle, var(--aes-green) 0%, transparent 75%); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.5rem; color: #fff; border-radius: 50%; box-shadow: 0 0 30px var(--aes-green-glow); }
+
+        .badge { display: inline-block; padding: 6px 14px; border-radius: 50px; background: rgba(0, 119, 200, 0.1); border: 1px solid var(--aes-blue); color: var(--aes-blue); font-weight: 800; font-size: 0.7rem; letter-spacing: 1px; margin-bottom: 15px; text-transform: uppercase; }
+
+        /* === COMPARISON & 4 SEASON === */
+        .comparison-img, .protection-diagram { width: 100%; border-radius: var(--radius-lg); border: 1px solid rgba(255,255,255,0.1); }
+        .bridge-icon { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; color: #fff; background: var(--aes-green); flex-shrink: 0; box-shadow: 0 0 15px var(--aes-green-glow); }
+
+        /* === PREMIER SERVICES CONSOLE === */
+        .services-console { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: var(--radius-lg); padding: 60px; box-shadow: 0 40px 100px rgba(0,0,0,0.6); }
+        .service-column h4 { color: var(--aes-green); margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px; font-size: 1.1rem; text-transform: uppercase; }
+        .service-list { list-style: none; color: #94A3B8; font-size: 1.05rem; }
+        .service-list li { margin-bottom: 8px; }
+
+        /* === AWARD === */
+        .award-logo { max-width: 320px; filter: drop-shadow(0 0 15px rgba(0, 119, 200, 0.5)); mix-blend-mode: screen; }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: 1s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* ============================================================
+           BULLETPROOF MOBILE OVERRIDES (KILLS INLINE STYLES)
+           ============================================================ */
+        @media (max-width: 768px) {
+            /* 1. Force the grid to be a single column, overriding inline spans */
+            .grid { grid-template-columns: 1fr !important; gap: 40px !important; text-align: center; }
+            .grid > div { grid-column: 1 / -1 !important; width: 100% !important; text-align: center !important; }
+            
+            /* 2. Shrink and center text */
+            h1 { font-size: 2.5rem !important; }
+            h2 { font-size: 2.2rem !important; line-height: 1.2 !important; margin-bottom: 15px !important; }
+            p { font-size: 1rem !important; }
+            .badge { display: table !important; margin: 0 auto 15px auto !important; }
+
+            /* 3. Header Layout */
+            .header-content { flex-direction: column !important; gap: 12px !important; }
+            .dealer-capsule { width: 100% !important; text-align: center !important; }
+
+            /* 4. Fix Hero Form Height */
+            .hero { padding-top: 160px !important; min-height: auto !important; background-attachment: scroll !important; }
+            .hero-form-console { margin: 20px auto 0 !important; width: 100% !important; padding: 20px !important; }
+
+            /* 5. Clean up 4-Season List Layout */
+            .protection-section ul { display: flex !important; flex-direction: column !important; align-items: flex-start !important; margin: 0 auto !important; max-width: max-content !important; }
+            .protection-section ul li { text-align: left !important; align-items: center !important; margin-bottom: 15px !important; }
+
+            /* 6. Clean up Premier Authority Section */
+            .services-console { padding: 40px 20px !important; width: 100% !important; }
+            .services-grid { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 20px !important; }
+            .service-column { text-align: center !important; }
+            
+            /* 7. Image sizing */
+            .comparison-img, .protection-diagram { width: 100% !important; max-width: 500px !important; margin: 0 auto 20px auto !important; display: block; }
+            .award-logo { max-width: 250px !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <img src="assets/images/all_exterior_solutions_transparent_logo.png" alt="All Exterior Solutions" class="logo-img">
+            <div class="dealer-capsule">
+                <p style="font-size: 0.75rem; color: #fff; font-weight: 800; letter-spacing: 2px;">NW OHIO EXCLUSIVE</p>
+                <p class="dealer-title-glow">Gutter Helmet Dealer</p>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container grid">
+            <div class="hero-text reveal active" style="grid-column: span 6;">
+                <h1>Never Clean Your <br><span class="green">Gutters</span> Again.</h1>
+                <p style="font-size: 1.35rem; color: rgba(255,255,255,0.9); margin-bottom: 40px; max-width: 600px;">
+                    Experience the 2026 Northwest Ohio standard in home protection. Using <b>Surface Tension Physics</b> to keep debris out and water flowing—permanently.
+                </p>
+            </div>
+            <div class="reveal active" style="grid-column: span 6;">
+                <div class="hero-form-console">
+                    <iframe src="https://link.jvrtechllc.com/widget/form/cU3ghcJBJdzmzrSbkB2g" style="width:100%;height:680px;border:none;" title="gutter helmet"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container"><div class="icon-grid reveal">
+        <div class="icon-card"><div class="aura-icon">0°</div><h3>Zero Maintenance</h3><p style="color: #94A3B8; margin-top:15px;">Engineered to handle the heaviest debris loads without ever needing a manual cleaning.</p></div>
+        <div class="icon-card"><div class="aura-icon">∞</div><h3>Triple Lifetime Warranty</h3><p style="color: #94A3B8; margin-top:15px;">A permanent, transferable guarantee that protects your home for generations.</p></div>
+        <div class="icon-card"><div class="aura-icon">100</div><h3>Surface Tension Max</h3><p style="color: #94A3B8; margin-top:15px;">Utilizing physics to wrap water into the gutter while jettisoning leaves to the ground.</p></div>
+    </div></section>
+
+    <section class="container reveal" style="padding: 80px 0;">
+        <div style="text-align: center; margin-bottom: 40px;">
+            <span class="badge">Real Results</span>
+            <h2 style="font-size: 3.5rem; margin-bottom: 20px;">What Our <span class="green">Customers</span> Say</h2>
+            <p style="color: #94A3B8; font-size: 1.2rem; max-width: 600px; margin: 0 auto;">Hear directly from Northwest Ohio homeowners who trust Gutter Helmet.</p>
+        </div>
+        <div style="max-width: 800px; margin: 0 auto; width: 100%;">
+            <div class="video-box">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Customer Testimonial" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="comparison-section reveal" style="padding: 80px 0;">
+        <div class="container grid">
+            <div style="grid-column: span 7;"><img src="assets/images/before_after.png" class="comparison-img" alt="Before and After"></div>
+            <div style="grid-column: span 5;">
+                <span class="badge">Visual Proof</span>
+                <h2 style="font-size: 3.5rem; margin-bottom: 25px;">The Reality of <span class="green">Neglect.</span></h2>
+                <p>Foundation damage starts at the gutters. Fix the system, not the symptoms.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="protection-section reveal" style="padding: 80px 0;">
+        <div class="container grid">
+            <div style="grid-column: span 7;">
+                <img src="assets/images/four_season.png" alt="Engineering Diagram" class="protection-diagram">
+            </div>
+            <div style="grid-column: span 5;">
+                <span class="badge" style="border-color: var(--aes-green); color: var(--aes-green);">Engineering</span>
+                <h2 style="font-size: 3.5rem; margin-bottom: 35px;"><span class="green">4 Season</span> Protection.</h2>
+                <ul style="list-style:none;">
+                    <li style="display:flex; gap:20px; margin-bottom:20px"><div class="bridge-icon">1</div><div><strong>Patented Nose-Forward Design™</strong></div></li>
+                    <li style="display:flex; gap:20px; margin-bottom:20px"><div class="bridge-icon">2</div><div><strong>Patented Textured Surface</strong></div></li>
+                    <li style="display:flex; gap:20px; margin-bottom:20px"><div class="bridge-icon">3</div><div><strong>PermaLife™ High Performance Coating</strong></div></li>
+                    <li style="display:flex; gap:20px; margin-bottom:20px"><div class="bridge-icon">4</div><div><strong>Horizontal Stiffening Ribs</strong></div></li>
+                    <li style="display:flex; gap:20px; margin-bottom:20px"><div class="bridge-icon">5</div><div><strong>Heavy Gauge Support Brackets</strong></div></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="premier-services-section reveal" style="padding: 100px 0;">
+        <div class="container">
+            <div class="services-console">
+                <div class="grid">
+                    <div style="grid-column: span 5; text-align: center;">
+                        <img src="assets/images/all_exterior_solutions_transparent_logo.png" style="max-width: 250px; margin-bottom: 20px; width: 100%;">
+                        <h2 style="font-size: 2.5rem; margin-bottom: 25px;">Ohio's <span class="green">Premier</span> Authority</h2>
+                        
+                        <div class="video-box" style="margin-bottom: 20px;">
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Expert Installation" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    
+                    <div class="services-grid" style="grid-column: span 7; display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px;">
+                        <div class="service-column"><h4>Roofing</h4><ul class="service-list"><li>Replacement</li><li>Repair</li><li>Metal & Asphalt</li></ul></div>
+                        <div class="service-column"><h4>Siding</h4><ul class="service-list"><li>Vinyl & Fiber Cement</li><li>Installation</li></ul></div>
+                        <div class="service-column"><h4>Gutters</h4><ul class="service-list"><li>Seamless Systems</li><li>Cleaning & Repair</li></ul></div>
+                        <div class="service-column"><h4>Windows</h4><ul class="service-list"><li>Energy-Efficient</li><li>Custom Fit</li></ul></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="award-banner reveal" style="padding: 80px 0; text-align: center;">
+        <div class="container">
+            <img src="assets/images/award-winning.png" alt="America's #1 Choice" class="award-logo" style="mix-blend-mode: screen;">
+            <h2 style="font-size: 3rem; margin-top: 20px;">America's #1 Choice</h2>
+        </div>
+    </section>
+
+    <section class="final-cta reveal" style="padding: 80px 0;">
+        <div class="container">
+            <div class="form-full-wrap" style="max-width: 800px; margin: 0 auto; background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.05); border-radius: var(--radius-lg); padding: 40px; box-shadow: 0 50px 100px rgba(0,0,0,0.5);">
+                <div style="text-align: center; margin-bottom: 30px;">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 10px;">Protect Your Home Forever</h2>
+                    <p style="color: var(--aes-blue); font-weight: 800; letter-spacing: 1px;">FINAL ASSESSMENT REQUEST</p>
+                </div>
+                <iframe src="https://link.jvrtechllc.com/widget/form/cU3ghcJBJdzmzrSbkB2g" style="width:100%;height:650px;border:none;border-radius:12px;" title="gutter helmet"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer style="text-align: center; padding: 60px 0; color: #475569; font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.05);">
+        <p>&copy; 2026 All Exterior Solutions | Exclusive Gutter Helmet Dealer for NW Ohio</p>
+    </footer>
+
+    <script src="https://link.jvrtechllc.com/js/form_embed.js"></script>
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
