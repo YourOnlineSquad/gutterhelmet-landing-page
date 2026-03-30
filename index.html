@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -38,18 +38,13 @@
                 radial-gradient(circle at 10% 10%, rgba(0, 119, 200, 0.15) 3px, transparent 3px),
                 radial-gradient(circle at 30% 50%, rgba(0, 119, 200, 0.1) 4px, transparent 4px),
                 radial-gradient(circle at 70% 20%, rgba(0, 119, 200, 0.18) 3px, transparent 3px),
-                radial-gradient(circle at 90% 80%, rgba(0, 119, 200, 0.12) 5px, transparent 5px),
-                radial-gradient(circle at 50% 90%, rgba(0, 119, 200, 0.15) 4px, transparent 4px);
+                radial-gradient(circle at 90% 80%, rgba(0, 119, 200, 0.12) 5px, transparent 5px);
             background-size: 300px 300px;
             z-index: -1;
             pointer-events: none;
             animation: fall 10s linear infinite;
         }
-
-        @keyframes fall {
-            from { background-position: 0px 0px; }
-            to { background-position: 0px 300px; }
-        }
+        @keyframes fall { from { background-position: 0px 0px; } to { background-position: 0px 300px; } }
 
         .container { width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 5%; }
         .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 50px; align-items: center; }
@@ -65,38 +60,31 @@
         }
         .header-content { display: flex; justify-content: space-between; align-items: center; }
         .logo-img { height: 50px; width: auto; }
+        
+        .nav-right { display: flex; align-items: center; gap: 30px; }
+        .nav-phone:hover { transform: scale(1.02); transition: 0.3s; }
+        
         .dealer-capsule {
             background: rgba(0, 119, 200, 0.15); border: 1px solid var(--aes-blue);
             padding: 8px 20px; border-radius: 100px; text-align: right;
             box-shadow: 0 0 15px var(--aes-blue-glow);
-            animation: pulse-blue 3s infinite ease-in-out;
         }
-        @keyframes pulse-blue {
-            0%, 100% { box-shadow: 0 0 15px var(--aes-blue-glow); }
-            50% { box-shadow: 0 0 25px var(--aes-blue); }
-        }
-        .dealer-title-glow {
-            color: var(--aes-green); text-shadow: 0 0 15px var(--aes-green-glow);
-            font-family: 'Outfit'; font-weight: 700; font-size: 0.95rem;
-        }
+        .dealer-title-glow { color: var(--aes-green); text-shadow: 0 0 15px var(--aes-green-glow); font-family: 'Outfit'; font-weight: 700; font-size: 0.95rem; }
 
-        /* === HERO SECTION === */
+        /* === HERO === */
         .hero { 
-            position: relative; min-height: 110vh; display: flex; align-items: center; padding-top: 140px; padding-bottom: 60px;
-            background: linear-gradient(rgba(3, 7, 18, 0.4), var(--dark-bg)),
-                        url('assets/images/gutter_helmet_beauty_shot.png') no-repeat center center;
+            position: relative; min-height: 100vh; display: flex; align-items: center; padding-top: 140px; padding-bottom: 60px;
+            background: linear-gradient(rgba(3, 7, 18, 0.4), var(--dark-bg)), url('assets/images/gutter_helmet_beauty_shot.png') no-repeat center center;
             background-size: cover; background-attachment: fixed;
         }
         .hero-text h1 { font-size: clamp(3rem, 6.5vw, 5rem); font-weight: 900; margin-bottom: 25px;}
-        
         .hero-form-console {
             background: rgba(17, 24, 39, 0.75); border: 1px solid rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(30px); padding: 30px; border-radius: var(--radius-lg);
-            width: 100%; max-width: 520px; margin-left: auto;
-            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8); min-height: 750px;
+            width: 100%; max-width: 520px; margin-left: auto; box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
         }
 
-        /* === WIDESCREEN VIDEO PLACEHOLDER STYLES === */
+        /* === WIDESCREEN VIDEO PLACEHOLDER === */
         .video-box { 
             position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; 
             border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); 
@@ -105,41 +93,30 @@
         }
         .video-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
-        /* === VERTICAL SHORTS VIDEO STYLES === */
+        /* === YOUTUBE SHORTS STRICT CONTAINER (FIX) === */
         .shorts-container {
-            position: relative; 
-            padding-bottom: 177.77%; /* 9:16 Aspect Ratio for Shorts */
-            height: 0; overflow: hidden; 
-            border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); 
-            background: #000; box-shadow: 0 20px 50px rgba(0,0,0,0.5); 
-            width: 100%; max-width: 400px; margin: 0 auto;
+            width: 100%;
+            max-width: 340px; /* Locks it to phone-size on computers so it doesn't get huge */
+            aspect-ratio: 9 / 16;
+            margin: 0 auto;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #000;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.1);
         }
-        .shorts-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .shorts-container iframe { width: 100%; height: 100%; border: none; }
 
         /* === ICONS === */
         .icon-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 100px 0; }
-        .icon-card {
-            padding: 40px; text-align: center; background: rgba(255,255,255,0.02);
-            border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); transition: var(--transition);
-        }
-        .icon-card:hover { transform: translateY(-10px); border-color: var(--aes-green); background: rgba(0, 204, 51, 0.05); }
-        .aura-icon {
-            width: 90px; height: 90px; margin: 0 auto 25px;
-            background: radial-gradient(circle, var(--aes-green) 0%, transparent 75%);
-            display: flex; align-items: center; justify-content: center;
-            font-family: 'Outfit'; font-weight: 900; font-size: 1.8rem; color: #fff;
-            border-radius: 50%; box-shadow: 0 0 30px var(--aes-green-glow);
-        }
+        .icon-card { padding: 40px; text-align: center; background: rgba(255,255,255,0.02); border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); }
+        .aura-icon { width: 90px; height: 90px; margin: 0 auto 25px; background: radial-gradient(circle, var(--aes-green) 0%, transparent 75%); display: flex; align-items: center; justify-content: center; font-family: 'Outfit'; font-weight: 900; font-size: 1.8rem; color: #fff; border-radius: 50%; box-shadow: 0 0 30px var(--aes-green-glow); }
 
-        /* === COMPARISON === */
-        .comparison-section { padding: 120px 0; }
-        .comparison-img { width: 100%; border-radius: var(--radius-lg); box-shadow: 0 30px 60px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); }
         .badge { display: inline-block; padding: 8px 16px; border-radius: 50px; background: rgba(0, 119, 200, 0.1); border: 1px solid var(--aes-blue); color: var(--aes-blue); font-weight: 800; font-size: 0.75rem; letter-spacing: 2px; margin-bottom: 20px; text-transform: uppercase; }
 
-        /* === 4 SEASON === */
-        .protection-section { padding: 120px 0; background: radial-gradient(circle at center, rgba(0, 119, 200, 0.05), transparent 70%); }
-        .protection-diagram { width: 100%; transition: var(--transition); filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5)); }
-        .protection-diagram:hover { filter: drop-shadow(0 0 40px var(--aes-blue-glow)); transform: scale(1.02); }
+        /* === COMPARISON & 4 SEASON === */
+        .comparison-img { width: 100%; border-radius: var(--radius-lg); box-shadow: 0 30px 60px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); }
+        .protection-diagram { width: 100%; filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5)); transition: 0.3s;}
         .bridge-icon { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; color: #fff; background: radial-gradient(circle, var(--aes-green) 0%, transparent 80%); border: 2px solid var(--aes-green); flex-shrink: 0; margin-top: 3px; box-shadow: 0 0 15px var(--aes-green-glow); }
 
         /* === PREMIER SERVICES CONSOLE === */
@@ -151,40 +128,41 @@
         }
 
         /* === AWARDS & CTA === */
-        .award-banner { padding: 120px 0; text-align: center; }
         .award-logo { max-width: 350px; margin-bottom: 30px; filter: drop-shadow(0 0 15px rgba(0, 119, 200, 0.5)); mix-blend-mode: screen; }
-        .final-cta { padding: 100px 0; background: #030712; }
         .form-full-wrap { max-width: 800px; margin: 0 auto; background: rgba(255, 255, 255, 0.01); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: var(--radius-lg); padding: 50px; box-shadow: 0 50px 100px rgba(0,0,0,0.5); }
+        .call-btn { display: inline-block; background: var(--aes-green); color: #030712; font-family: 'Outfit'; font-weight: 900; font-size: 1.5rem; padding: 18px 50px; border-radius: 50px; text-decoration: none; box-shadow: 0 10px 30px var(--aes-green-glow); transition: 0.3s; margin-top: 15px; }
+        .call-btn:hover { transform: translateY(-5px); box-shadow: 0 15px 40px var(--aes-green-glow); }
 
         .reveal { opacity: 0; transform: translateY(50px); transition: all 1s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
         /* =========================================================================
-           MOBILE OVERRIDE: FORCES GRID TO BREAK AND STACK VERTICALLY
+           MOBILE OVERRIDE: FORCES STACKING
            ========================================================================= */
         @media (max-width: 1024px) {
-            /* Kills the desktop columns on mobile */
             .grid { display: flex !important; flex-direction: column !important; gap: 40px !important; }
             .grid > div { width: 100% !important; text-align: center !important; }
             
-            /* Text Centering and Shrinking */
             h1 { font-size: 2.8rem !important; text-align: center !important; }
             h2 { font-size: 2.2rem !important; text-align: center !important; line-height: 1.2 !important; }
             p { text-align: center !important; }
             .badge { display: table !important; margin: 0 auto 20px auto !important; }
 
-            /* Header & Hero Fixes */
+            /* Nav Restructure */
             .header-content { flex-direction: column; gap: 15px; }
+            .nav-right { flex-direction: column; gap: 15px; width: 100%; text-align: center; }
+            .nav-phone span { text-align: center !important; }
             .dealer-capsule { width: 100%; text-align: center; }
-            .hero { padding-top: 160px !important; min-height: auto !important; background-attachment: scroll !important; }
+
+            .hero { padding-top: 180px !important; min-height: auto !important; background-attachment: scroll !important; }
             .hero-form-console { margin: 30px auto 0 !important; width: 100% !important; min-height: auto !important; padding: 20px !important; }
 
-            /* 4-Season List Alignment Fix */
+            /* 4-Season Align */
             .protection-section ul { display: inline-block !important; text-align: left !important; margin: 0 auto !important; max-width: 320px; }
             .protection-section ul li { justify-content: flex-start !important; margin-bottom: 15px !important; }
             
-            /* Premier Authority Box Fix */
             .services-console { padding: 40px 20px !important; width: 100% !important; }
+            .call-btn { width: 100%; font-size: 1.3rem; padding: 15px 0; }
         }
     </style>
 </head>
@@ -193,9 +171,15 @@
     <header>
         <div class="container header-content">
             <img src="assets/images/all_exterior_solutions_transparent_logo.png" alt="All Exterior Solutions" class="logo-img">
-            <div class="dealer-capsule">
-                <p style="font-size: 0.75rem; color: #fff; font-weight: 800; letter-spacing: 2px;">NW OHIO EXCLUSIVE</p>
-                <p class="dealer-title-glow">Gutter Helmet Dealer</p>
+            <div class="nav-right">
+                <a href="tel:4198071377" class="nav-phone" style="text-decoration: none;">
+                    <span style="font-size: 0.75rem; color: #fff; font-weight: 800; display: block; text-align: right; letter-spacing: 2px;">CALL FOR ASSESSMENT</span>
+                    <span style="font-family: 'Outfit'; font-weight: 800; color: var(--aes-green); font-size: 1.3rem;">(419) 807-1377</span>
+                </a>
+                <div class="dealer-capsule">
+                    <p style="font-size: 0.75rem; color: #fff; font-weight: 800; letter-spacing: 2px;">NW OHIO EXCLUSIVE</p>
+                    <p class="dealer-title-glow">Gutter Helmet Dealer</p>
+                </div>
             </div>
         </div>
     </header>
@@ -211,51 +195,37 @@
             <div class="reveal active" style="grid-column: span 6;">
                 <div class="hero-form-console">
                     <h3 style="font-size: 1.8rem; margin-bottom: 25px; text-align: center;">Secure Your Assessment</h3>
-                    <iframe src="https://link.jvrtechllc.com/widget/form/cU3ghcJBJdzmzrSbkB2g" style="width:100%;height:700px;border:none;border-radius:12px" id="inline-cU3ghcJBJdzmzrSbkB2g" data-form-id="cU3ghcJBJdzmzrSbkB2g" title="gutter helmet"></iframe>
+                    <iframe src="https://link.jvrtechllc.com/widget/form/cU3ghcJBJdzmzrSbkB2g" style="width:100%;height:700px;border:none;border-radius:12px" title="gutter helmet"></iframe>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="container">
+    <section class="container" style="padding: 80px 0;">
         <div class="icon-grid reveal">
-            <div class="icon-card">
-                <div class="aura-icon">0°</div>
-                <h3>Zero Maintenance</h3>
-                <p style="color: #94A3B8; margin-top:15px;">Engineered to handle the heaviest debris loads without ever needing a manual cleaning.</p>
-            </div>
-            <div class="icon-card">
-                <div class="aura-icon">∞</div>
-                <h3>Triple Lifetime Warranty</h3>
-                <p style="color: #94A3B8; margin-top:15px;">A permanent, transferable guarantee that protects your home for generations.</p>
-            </div>
-            <div class="icon-card">
-                <div class="aura-icon">100</div>
-                <h3>Surface Tension Max</h3>
-                <p style="color: #94A3B8; margin-top:15px;">Utilizing physics to wrap water into the gutter while jettisoning leaves to the ground.</p>
-            </div>
+            <div class="icon-card"><div class="aura-icon">0°</div><h3>Zero Maintenance</h3><p style="color: #94A3B8; margin-top:15px;">Engineered to handle the heaviest debris loads without ever needing a manual cleaning.</p></div>
+            <div class="icon-card"><div class="aura-icon">∞</div><h3>Triple Lifetime Warranty</h3><p style="color: #94A3B8; margin-top:15px;">A permanent, transferable guarantee that protects your home for generations.</p></div>
+            <div class="icon-card"><div class="aura-icon">100</div><h3>Surface Tension Max</h3><p style="color: #94A3B8; margin-top:15px;">Utilizing physics to wrap water into the gutter while jettisoning leaves to the ground.</p></div>
         </div>
     </section>
 
-    <section class="container reveal" style="padding: 100px 0;">
+    <section class="container reveal" style="padding: 80px 0;">
         <div style="text-align: center; margin-bottom: 40px;">
             <span class="badge">Real Results</span>
             <h2 style="font-size: 3.5rem; margin-bottom: 25px;">What Our <span class="green">Customers</span> Say</h2>
-            <p style="color: #94A3B8; font-size: 1.2rem;">Hear from homeowners across Northwest Ohio who trust Gutter Helmet.</p>
+            <p style="color: #94A3B8; font-size: 1.2rem; max-width: 800px; margin: 0 auto;">Gutter Helmet Toledo Ohio Testimonial | “I Was The Doubter And It Actually Worked” Northwest Ohio.</p>
         </div>
-        <div style="max-width: 800px; margin: 0 auto;">
+        <div style="max-width: 800px; margin: 0 auto; width: 100%;">
             <div class="video-box">
-                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Customer Testimonial" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE" title="Customer Testimonial" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
     </section>
 
-    <section class="comparison-section">
+    <section class="comparison-section reveal" style="padding: 80px 0;">
         <div class="container grid">
-            <div style="grid-column: span 7;" class="reveal">
-                <img src="assets/images/before_after.png" alt="Before and After Comparison" class="comparison-img">
-            </div>
-            <div style="grid-column: span 5;" class="reveal">
+            <div style="grid-column: span 7;"><img src="assets/images/before_after.png" alt="Before and After Comparison" class="comparison-img"></div>
+            <div style="grid-column: span 5;">
                 <span class="badge">Visual Proof</span>
                 <h2 style="font-size: 3.5rem; margin-bottom: 25px;">The Reality of <span class="green">Neglect.</span></h2>
                 <p>Foundation damage starts at the gutters. Fix the system, not the symptoms.</p>
@@ -263,12 +233,12 @@
         </div>
     </section>
 
-    <section class="protection-section">
+    <section class="protection-section reveal" style="padding: 80px 0;">
         <div class="container grid">
-            <div style="grid-column: span 7;" class="reveal">
+            <div style="grid-column: span 7;">
                 <img src="assets/images/four_season.png" alt="Engineering Diagram" class="protection-diagram">
             </div>
-            <div style="grid-column: span 5;" class="reveal">
+            <div style="grid-column: span 5;">
                 <span class="badge" style="border-color: var(--aes-green); color: var(--aes-green);">Engineering</span>
                 <h2 style="font-size: 3.5rem; margin-bottom: 35px;"><span class="green">4 Season</span> Protection.</h2>
                 <ul style="list-style:none">
@@ -289,7 +259,7 @@
                 <h2 style="font-size: 3.5rem; margin-bottom: 20px;">Ohio's #1 <span class="green">Exterior Experts</span></h2>
                 
                 <p style="font-size: 1.15rem; color: #94A3B8; margin-bottom: 40px; max-width: 750px; margin-left: auto; margin-right: auto; line-height: 1.6;">
-                    For decades, All Exterior Solutions has set the gold standard for premium home protection in Northwest Ohio. We don't just do the job—we engineer comprehensive exterior systems designed to defend your home against the harshest elements while elevating its curb appeal. Watch our crew in action below and see why thousands of homeowners trust us with their most valuable asset.
+                    For decades, All Exterior Solutions has set the gold standard for premium home protection in Northwest Ohio. We don't just do the job—we engineer comprehensive exterior systems designed to defend your home against the harshest elements while elevating its curb appeal.
                 </p>
                 
                 <div class="shorts-container">
@@ -301,7 +271,7 @@
 
     <section class="award-banner reveal" style="padding: 80px 0; text-align: center;">
         <div class="container">
-            <img src="assets/images/award-winning.png" alt="America's #1 Choice" class="award-logo" style="mix-blend-mode: screen;">
+            <img src="assets/images/award-winning.png" alt="America's #1 Choice" class="award-logo">
             <h2 style="font-size: 3rem; margin-bottom: 20px;">America's #1 Choice</h2>
         </div>
     </section>
@@ -313,7 +283,12 @@
                     <h2 style="font-size: 2.5rem; margin-bottom: 10px;">Protect Your Home Forever</h2>
                     <p style="color: var(--aes-blue); font-weight: 800; letter-spacing: 1px;">FINAL ASSESSMENT REQUEST</p>
                 </div>
-                <iframe src="https://link.jvrtechllc.com/widget/form/cU3ghcJBJdzmzrSbkB2g" style="width:100%;height:650px;border:none;border-radius:12px" id="inline-secondary-cU3ghcJBJdzmzrSbkB2g" data-form-id="cU3ghcJBJdzmzrSbkB2g" title="gutter helmet"></iframe>
+                <iframe src="https://link.jvrtechllc.com/widget/form/cU3ghcJBJdzmzrSbkB2g" style="width:100%;height:650px;border:none;border-radius:12px" title="gutter helmet"></iframe>
+                
+                <div style="text-align: center; margin-top: 40px;">
+                    <p style="font-size: 1.2rem; color: #94A3B8; margin-bottom: 15px;">Prefer to speak with an expert directly?</p>
+                    <a href="tel:4198071377" class="call-btn">Call (419) 807-1377</a>
+                </div>
             </div>
         </div>
     </section>
