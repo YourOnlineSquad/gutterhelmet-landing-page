@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -30,7 +30,7 @@
         }
 
         /* =========================================================================
-           REALISTIC MULTI-LAYER FALLING WATER DROPS & FOG
+           REALISTIC MULTI-LAYER FALLING WATER DROPS (Updated Sections)
            ========================================================================= */
         
         /* Base configuration for all rain layers */
@@ -41,7 +41,7 @@
             width: 100%;
             height: 100%;
             pointer-events: none; /* Allows text to be clickable */
-            z-index: -3;          /* Keeps rain behind all content and fog */
+            z-index: -1;          /* Keeps rain behind all content */
             background-repeat: repeat;
         }
 
@@ -80,32 +80,15 @@
             animation: fall 6s linear infinite; /* Fast fall */
         }
 
+        /* Define the falling animation (unchanged) */
         @keyframes fall {
             from { background-position: 0px 0px; }
             to { background-position: 0px 300px; }
         }
 
-        /* 4. SUBTLE FOG AMBIENCE */
-        .fog-layer {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none; z-index: -2;
-            background-image:
-                radial-gradient(circle at 10% 10%, rgba(200, 210, 230, 0.03) 0%, transparent 40%),
-                radial-gradient(circle at 90% 90%, rgba(230, 235, 245, 0.03) 0%, transparent 40%);
-        }
-
         /* =========================================================================
-           NEON GLOW SYSTEM
+           END REALISTIC RAIN
            ========================================================================= */
-        .glow-wrapper { position: relative; }
-        .glow-orb {
-            position: absolute; border-radius: 50%; filter: blur(100px);
-            z-index: -1; pointer-events: none; opacity: 0.2;
-        }
-        .glow-orb.blue { background-color: var(--aes-blue); }
-        .glow-orb.green { background-color: var(--aes-green); }
-
-        /* ========================================================================= */
 
         .container { width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 5%; }
         .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 50px; align-items: center; }
@@ -234,8 +217,6 @@
     <div class="rain-layer rain-far"></div>
     <div class="rain-layer rain-mid"></div>
     <div class="rain-layer rain-near"></div>
-    <div class="fog-layer"></div>
-
     <header>
         <div class="container header-content">
             <img src="assets/images/all_exterior_solutions_transparent_logo.png" alt="All Exterior Solutions" class="logo-img">
@@ -260,9 +241,7 @@
                     Experience the 2026 Northwest Ohio standard in home protection. Using <b>Surface Tension Physics</b> to keep debris out and water flowing—permanently.
                 </p>
             </div>
-            <div class="reveal active glow-wrapper" style="grid-column: span 6;">
-                <div class="glow-orb blue" style="top: 50%; left: 50%; transform: translate(-50%, -50%); width: 500px; height: 500px;"></div>
-                
+            <div class="reveal active" style="grid-column: span 6;">
                 <div class="hero-form-console">
                     <h3 style="font-size: 1.8rem; margin-bottom: 25px; text-align: center;">Secure Your Assessment</h3>
                     <iframe src="https://link.jvrtechllc.com/widget/form/cU3ghcJBJdzmzrSbkB2g" style="width:100%;height:700px;border:none;border-radius:12px" title="gutter helmet"></iframe>
@@ -279,15 +258,13 @@
         </div>
     </section>
 
-    <section class="container reveal glow-wrapper" style="padding: 80px 0;">
-        <div class="glow-orb green" style="top: 50%; left: 50%; transform: translate(-50%, -50%); width: 600px; height: 600px;"></div>
-        
-        <div style="text-align: center; margin-bottom: 40px; position: relative;">
+    <section class="container reveal" style="padding: 80px 0;">
+        <div style="text-align: center; margin-bottom: 40px;">
             <span class="badge">Real Results</span>
             <h2 style="font-size: 3.5rem; margin-bottom: 25px;">What Our <span class="green">Customers</span> Say</h2>
             <p style="color: #94A3B8; font-size: 1.2rem; max-width: 800px; margin: 0 auto;">Gutter Helmet Toledo Ohio Testimonial | “I Was The Doubter And It Actually Worked” Northwest Ohio.</p>
         </div>
-        <div style="max-width: 800px; margin: 0 auto; width: 100%; position: relative;">
+        <div style="max-width: 800px; margin: 0 auto; width: 100%;">
             <div class="video-box">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/OqrRZ6VIiK8?si=ivrFta8wqVTX4uzH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
@@ -305,10 +282,8 @@
         </div>
     </section>
 
-    <section class="protection-section reveal glow-wrapper" style="padding: 80px 0;">
-        <div class="glow-orb blue" style="top: 50%; left: 30%; transform: translate(-50%, -50%); width: 500px; height: 500px;"></div>
-        
-        <div class="container grid" style="position: relative;">
+    <section class="protection-section reveal" style="padding: 80px 0;">
+        <div class="container grid">
             <div style="grid-column: span 7;">
                 <img src="assets/images/four_season.png" alt="Engineering Diagram" class="protection-diagram">
             </div>
@@ -350,10 +325,8 @@
         </div>
     </section>
 
-    <section class="final-cta reveal glow-wrapper" style="padding: 80px 0;">
-        <div class="glow-orb green" style="top: 50%; left: 50%; transform: translate(-50%, -50%); width: 700px; height: 700px;"></div>
-        
-        <div class="container" style="position: relative;">
+    <section class="final-cta reveal" style="padding: 80px 0;">
+        <div class="container">
             <div class="form-full-wrap">
                 <div style="text-align: center; margin-bottom: 40px;">
                     <h2 style="font-size: 2.5rem; margin-bottom: 10px;">Protect Your Home Forever</h2>
