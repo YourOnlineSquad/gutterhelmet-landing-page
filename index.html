@@ -42,42 +42,40 @@
             height: 100%;
             pointer-events: none; /* Allows text to be clickable */
             z-index: -1;          /* Keeps rain behind all content */
-            /* Remove background-repeat: repeat; - will move to specific layers for image patterns */
+            background-repeat: repeat;
         }
-
-        /*
-           To achieve the elegant teardrop shape from the image while maintaining perspective,
-           you'll need to create three elegant illustrated teardrop pattern SVGs.
-           The far pattern tile should have the smallest drops, the near pattern the largest.
-           Replace the placeholder 'path/to/your/teardrop...' with your actual file paths.
-        */
 
         /* 1. LAYER 1: FAR RAIN (Smallest, most transparent, slowest) */
         .rain-far {
-            /* Old dot gradient removed */
-            /* Replace with your tiled pattern SVG containing small elegant teardrops */
-            background-image: url('path/to/your/teardrop-far.svg');
-            background-repeat: repeat;
+            background-image:
+                radial-gradient(circle at 15% 15%, rgba(0, 80, 150, 0.05) 2px, transparent 2px),
+                radial-gradient(circle at 35% 55%, rgba(0, 80, 150, 0.05) 3px, transparent 3px),
+                radial-gradient(circle at 75% 25%, rgba(0, 80, 150, 0.05) 2px, transparent 2px),
+                radial-gradient(circle at 95% 85%, rgba(0, 80, 150, 0.05) 3px, transparent 3px);
             background-size: 300px 300px;
             animation: fall 22s linear infinite; /* Slower fall */
         }
 
         /* 2. LAYER 2: MID RAIN (Original size, original brightness, original speed) */
         .rain-mid {
-            /* Old dot gradient removed */
-            /* Replace with your tiled pattern SVG containing medium elegant teardrops */
-            background-image: url('path/to/your/teardrop-mid.svg');
-            background-repeat: repeat;
+            background-image:
+                radial-gradient(circle at 10% 10%, rgba(0, 119, 200, 0.12) 4px, transparent 4px),
+                radial-gradient(circle at 30% 50%, rgba(0, 119, 200, 0.1) 5px, transparent 5px),
+                radial-gradient(circle at 70% 20%, rgba(0, 119, 200, 0.15) 4px, transparent 4px),
+                radial-gradient(circle at 90% 80%, rgba(0, 119, 200, 0.12) 6px, transparent 6px),
+                radial-gradient(circle at 50% 90%, rgba(0, 119, 200, 0.12) 5px, transparent 5px);
             background-size: 300px 300px;
             animation: fall 11s linear infinite; /* Medium fall */
         }
 
         /* 3. LAYER 3: NEAR RAIN (Largest, brightest/most opaque, fastest) */
         .rain-near {
-            /* Old dot gradient removed */
-            /* Replace with your tiled pattern SVG containing large elegant teardrops */
-            background-image: url('path/to/your/teardrop-near.svg');
-            background-repeat: repeat;
+            background-image:
+                radial-gradient(circle at 20% 20%, rgba(0, 119, 200, 0.2) 7px, transparent 7px),
+                radial-gradient(circle at 40% 60%, rgba(0, 119, 200, 0.18) 8px, transparent 8px),
+                radial-gradient(circle at 80% 30%, rgba(0, 119, 200, 0.22) 7px, transparent 7px),
+                radial-gradient(circle at 60% 95%, rgba(0, 119, 200, 0.2) 8px, transparent 8px),
+                radial-gradient(circle at 95% 10%, rgba(0, 119, 200, 0.2) 7px, transparent 7px);
             background-size: 300px 300px;
             animation: fall 6s linear infinite; /* Fast fall */
         }
@@ -91,23 +89,6 @@
         /* =========================================================================
            END REALISTIC RAIN
            ========================================================================= */
-
-
-        /* === NEW: COLD WEATHER FOG AMBIENCE === */
-        .fog-layer {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none; /* Allows text to be clickable */
-            z-index: -1;          /* Keeps fog behind all content, above rain */
-            /* Layered, varied cool gradients for a misty effect */
-            background-image:
-                linear-gradient(135deg, rgba(200, 210, 230, 0.15) 0%, transparent 40%),
-                linear-gradient(-45deg, rgba(230, 235, 245, 0.1) 0%, transparent 35%);
-        }
-        /* ======================================= */
 
         .container { width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 5%; }
         .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 50px; align-items: center; }
@@ -236,7 +217,6 @@
     <div class="rain-layer rain-far"></div>
     <div class="rain-layer rain-mid"></div>
     <div class="rain-layer rain-near"></div>
-    <div class="fog-layer"></div>
     <header>
         <div class="container header-content">
             <img src="assets/images/all_exterior_solutions_transparent_logo.png" alt="All Exterior Solutions" class="logo-img">
