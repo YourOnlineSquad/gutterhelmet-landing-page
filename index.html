@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -38,7 +38,8 @@
                 radial-gradient(circle at 10% 10%, rgba(0, 119, 200, 0.15) 3px, transparent 3px),
                 radial-gradient(circle at 30% 50%, rgba(0, 119, 200, 0.1) 4px, transparent 4px),
                 radial-gradient(circle at 70% 20%, rgba(0, 119, 200, 0.18) 3px, transparent 3px),
-                radial-gradient(circle at 90% 80%, rgba(0, 119, 200, 0.12) 5px, transparent 5px);
+                radial-gradient(circle at 90% 80%, rgba(0, 119, 200, 0.12) 5px, transparent 5px),
+                radial-gradient(circle at 50% 90%, rgba(0, 119, 200, 0.15) 4px, transparent 4px);
             background-size: 300px 300px;
             z-index: -1;
             pointer-events: none;
@@ -109,7 +110,8 @@
 
         /* === ICONS === */
         .icon-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 100px 0; }
-        .icon-card { padding: 40px; text-align: center; background: rgba(255,255,255,0.02); border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); }
+        .icon-card { padding: 40px; text-align: center; background: rgba(255,255,255,0.02); border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); transition: var(--transition); }
+        .icon-card:hover { transform: translateY(-10px); border-color: var(--aes-green); background: rgba(0, 204, 51, 0.05); }
         .aura-icon { width: 90px; height: 90px; margin: 0 auto 25px; background: radial-gradient(circle, var(--aes-green) 0%, transparent 75%); display: flex; align-items: center; justify-content: center; font-family: 'Outfit'; font-weight: 900; font-size: 1.8rem; color: #fff; border-radius: 50%; box-shadow: 0 0 30px var(--aes-green-glow); }
 
         .badge { display: inline-block; padding: 8px 16px; border-radius: 50px; background: rgba(0, 119, 200, 0.1); border: 1px solid var(--aes-blue); color: var(--aes-blue); font-weight: 800; font-size: 0.75rem; letter-spacing: 2px; margin-bottom: 20px; text-transform: uppercase; }
@@ -217,7 +219,7 @@
         </div>
         <div style="max-width: 800px; margin: 0 auto; width: 100%;">
             <div class="video-box">
-                <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE" title="Customer Testimonial" frameborder="0" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/OqrRZ6VIiK8?si=ivrFta8wqVTX4uzH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
         </div>
     </section>
