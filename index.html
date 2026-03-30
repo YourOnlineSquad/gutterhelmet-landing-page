@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -26,9 +26,10 @@
             color: #F8FAFC; 
             overflow-x: hidden;
             line-height: 1.4;
+            position: relative;
         }
 
-        /* === RAINDROP BACKGROUND === */
+        /* === ANIMATED FALLING WATER DROPS === */
         body::before {
             content: "";
             position: fixed;
@@ -37,13 +38,18 @@
                 radial-gradient(circle at 10% 10%, rgba(0, 119, 200, 0.15) 3px, transparent 3px),
                 radial-gradient(circle at 30% 50%, rgba(0, 119, 200, 0.1) 4px, transparent 4px),
                 radial-gradient(circle at 70% 20%, rgba(0, 119, 200, 0.18) 3px, transparent 3px),
-                radial-gradient(circle at 90% 80%, rgba(0, 119, 200, 0.12) 5px, transparent 5px);
+                radial-gradient(circle at 90% 80%, rgba(0, 119, 200, 0.12) 5px, transparent 5px),
+                radial-gradient(circle at 50% 90%, rgba(0, 119, 200, 0.15) 4px, transparent 4px);
             background-size: 300px 300px;
             z-index: -1;
             pointer-events: none;
             animation: fall 10s linear infinite;
         }
-        @keyframes fall { from { background-position: 0px 0px; } to { background-position: 0px 300px; } }
+
+        @keyframes fall {
+            from { background-position: 0px 0px; }
+            to { background-position: 0px 300px; }
+        }
 
         .container { width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 5%; }
         .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 50px; align-items: center; }
@@ -54,71 +60,118 @@
         /* === NAV BAR === */
         header {
             position: fixed; top: 0; width: 100%; z-index: 2000;
-            padding: 15px 0; background: rgba(3, 7, 18, 0.85);
-            backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 15px 0;
+            background: rgba(3, 7, 18, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
         .header-content { display: flex; justify-content: space-between; align-items: center; }
         .logo-img { height: 50px; width: auto; }
+
         .dealer-capsule {
-            background: rgba(0, 119, 200, 0.15); border: 1px solid var(--aes-blue);
-            padding: 8px 20px; border-radius: 100px; text-align: right;
+            background: rgba(0, 119, 200, 0.15);
+            border: 1px solid var(--aes-blue);
+            padding: 8px 20px;
+            border-radius: 100px;
+            text-align: right;
             box-shadow: 0 0 15px var(--aes-blue-glow);
+            animation: pulse-blue 3s infinite ease-in-out;
         }
-        .dealer-title-glow { color: var(--aes-green); text-shadow: 0 0 15px var(--aes-green-glow); font-family: 'Outfit'; font-weight: 700; font-size: 0.95rem; }
+        @keyframes pulse-blue {
+            0%, 100% { box-shadow: 0 0 15px var(--aes-blue-glow); }
+            50% { box-shadow: 0 0 25px var(--aes-blue); }
+        }
+        .dealer-title-glow {
+            color: var(--aes-green);
+            text-shadow: 0 0 15px var(--aes-green-glow);
+            font-family: 'Outfit';
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
 
         /* === HERO SECTION === */
         .hero { 
-            position: relative; min-height: 100vh; display: flex; align-items: center; padding-top: 120px; padding-bottom: 60px;
-            background: linear-gradient(rgba(3, 7, 18, 0.5), var(--dark-bg)), url('assets/images/gutter_helmet_beauty_shot.png') no-repeat center center;
+            position: relative; min-height: 110vh; display: flex; align-items: center; padding-top: 120px; padding-bottom: 60px;
+            background: linear-gradient(rgba(3, 7, 18, 0.5), var(--dark-bg)),
+                        url('assets/images/gutter_helmet_beauty_shot.png') no-repeat center center;
             background-size: cover;
         }
         .hero-text h1 { font-size: 4.5rem; font-weight: 900; margin-bottom: 25px;}
+        
         .hero-form-console {
             background: rgba(17, 24, 39, 0.8); border: 1px solid rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(20px); padding: 30px; border-radius: var(--radius-lg);
-            width: 100%; max-width: 500px; margin-left: auto; box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
+            width: 100%; max-width: 500px; margin-left: auto;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
         }
 
-        /* === NEW VIDEO STYLE === */
+        /* === VIDEO WRAPPER === */
         .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 16px; overflow: hidden; background: #000; border: 1px solid rgba(255,255,255,0.1); }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
-        /* === COMPONENTS === */
+        /* === ICON CARDS === */
         .icon-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 60px 0; }
-        .icon-card { padding: 40px; text-align: center; background: rgba(255,255,255,0.02); border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); }
-        .aura-icon { width: 80px; height: 80px; margin: 0 auto 20px; background: radial-gradient(circle, var(--aes-green) 0%, transparent 75%); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.5rem; color: #fff; border-radius: 50%; box-shadow: 0 0 30px var(--aes-green-glow); }
+        .icon-card {
+            padding: 40px; text-align: center; background: rgba(255,255,255,0.02);
+            border-radius: 24px; border: 1px solid rgba(255,255,255,0.05);
+        }
+        .aura-icon {
+            width: 80px; height: 80px; margin: 0 auto 20px;
+            background: radial-gradient(circle, var(--aes-green) 0%, transparent 75%);
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 900; font-size: 1.5rem; color: #fff;
+            border-radius: 50%; box-shadow: 0 0 30px var(--aes-green-glow);
+        }
 
+        /* === BEFORE & AFTER === */
         .comparison-img { width: 100%; border-radius: var(--radius-lg); border: 1px solid rgba(255,255,255,0.1); }
         .badge { display: inline-block; padding: 6px 14px; border-radius: 50px; background: rgba(0, 119, 200, 0.1); border: 1px solid var(--aes-blue); color: var(--aes-blue); font-weight: 800; font-size: 0.7rem; letter-spacing: 1px; margin-bottom: 15px; text-transform: uppercase; }
 
-        /* === PROTECTION === */
-        .bridge-icon { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; color: #fff; background: var(--aes-green); flex-shrink: 0; box-shadow: 0 0 15px var(--aes-green-glow); }
+        /* === 4 SEASON PROTECTION === */
+        .bridge-icon { 
+            width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; 
+            font-weight: 900; color: #fff; background: var(--aes-green); flex-shrink: 0; 
+            box-shadow: 0 0 15px var(--aes-green-glow); 
+        }
 
-        /* === PREMIER SERVICES === */
-        .services-console { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: var(--radius-lg); padding: 60px; box-shadow: 0 40px 100px rgba(0,0,0,0.6); }
-        .service-column h4 { color: var(--aes-green); margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
-        .service-list { list-style: none; }
-        .service-list li { color: #94A3B8; margin-bottom: 8px; }
+        /* === PREMIER SERVICES GRID === */
+        .services-console {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius-lg);
+            padding: 60px;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+        }
+        .service-column h4 { color: var(--aes-green); margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; font-size: 1rem; }
+        .service-list { list-style: none; color: #94A3B8; font-size: 0.95rem; }
+        .service-list li { margin-bottom: 6px; }
 
-        .award-logo { max-width: 320px; filter: drop-shadow(0 0 15px rgba(0, 119, 200, 0.5)); background: transparent; }
+        /* === AWARD BANNER === */
+        .award-logo { 
+            max-width: 320px; 
+            filter: drop-shadow(0 0 15px rgba(0, 119, 200, 0.5)); 
+            mix-blend-mode: screen; /* THIS FIXES THE TRANSPARENCY ISSUE */
+        }
 
         .reveal { opacity: 0; transform: translateY(30px); transition: 1s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
         /* ============================================================
-           FORCE MOBILE FIXES (Aggressive Scaling)
+           MOBILE-SPECIFIC OVERRIDES
            ============================================================ */
         @media (max-width: 768px) {
             .grid { grid-template-columns: 1fr !important; text-align: center; gap: 35px; }
             .container { padding: 0 7%; }
 
-            /* Tiny Text for Phones */
-            h1 { font-size: 2.2rem !important; }
-            h2 { font-size: 1.8rem !important; }
-            p { font-size: 0.95rem !important; }
+            /* Font Scaling */
+            h1 { font-size: 2.2rem !important; text-align: center !important; }
+            h2 { font-size: 1.8rem !important; text-align: center !important; }
+            p { font-size: 0.95rem !important; text-align: center !important; }
+            .badge { margin: 0 auto 15px auto !important; display: block; width: fit-content; }
 
             /* Header Cleanup */
             .header-content { flex-direction: column; gap: 10px; }
+            .logo-img { height: 40px !important; }
             .dealer-capsule { width: 100%; text-align: center; }
 
             /* Spacing Fix */
@@ -126,14 +179,14 @@
             .hero { padding-top: 160px; background-attachment: scroll; }
             .hero-form-console { margin: 20px 0; min-height: auto; }
 
-            /* Lists & Alignment */
+            /* Testimonial & List Alignment */
             .protection-section ul { display: inline-block; text-align: left; max-width: 300px; margin: 0 auto; }
-            .services-console { padding: 30px 15px; }
-            .services-grid { grid-template-columns: 1fr !important; }
+            .protection-section ul li { justify-content: flex-start !important; margin-bottom: 15px; }
             
             /* Center All Exterior Section */
-            .premier-services-section .grid div { grid-column: span 12 !important; }
-            .services-console img { max-width: 180px; margin: 0 auto 20px; }
+            .services-console { padding: 30px 15px; }
+            .services-grid { grid-template-columns: 1fr !important; }
+            .services-console img { max-width: 180px; margin: 0 auto 20px; display: block; }
         }
     </style>
 </head>
@@ -173,14 +226,12 @@
 
     <section class="container reveal" style="padding: 60px 0;">
         <div style="text-align: center; margin-bottom: 30px;">
-            <span class="badge">Testimonials</span>
+            <span class="badge">Real Results</span>
             <h2>What Our <span class="green">Customers</span> Say</h2>
         </div>
-        <div class="grid">
-            <div style="grid-column: span 8; grid-row: 1; margin: 0 auto; width: 100%;">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-                </div>
+        <div style="max-width: 800px; margin: 0 auto; width: 100%;">
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
     </section>
@@ -192,11 +243,11 @@
         </div>
     </section>
 
-    <section class="container reveal" style="padding: 80px 0;">
-        <div class="grid">
-            <div style="grid-column: span 7;"><img src="assets/images/four_season.png" class="comparison-img"></div>
+    <section class="protection-section reveal" style="padding: 80px 0;">
+        <div class="container grid">
+            <div style="grid-column: span 7;"><img src="assets/images/four_season.png" alt="Engineering Diagram" class="comparison-img"></div>
             <div style="grid-column: span 5;">
-                <span class="badge">Engineering</span>
+                <span class="badge" style="border-color: var(--aes-green); color: var(--aes-green);">Engineering</span>
                 <h2><span class="green">4 Season</span> Protection.</h2>
                 <ul style="list-style:none; margin-top: 20px;">
                     <li style="display:flex; gap:15px; margin-bottom:15px"><div class="bridge-icon">1</div><strong>Patented Nose-Forward Design™</strong></li>
@@ -209,35 +260,43 @@
         </div>
     </section>
 
-    <section class="premier-services-section reveal"><div class="container"><div class="services-console">
-        <div class="grid">
-            <div style="grid-column: span 5; text-align: center;">
-                <img src="assets/images/all_exterior_solutions_transparent_logo.png" style="max-width: 220px; margin-bottom: 20px;">
-                <h2 style="font-size: 2rem; margin-bottom: 20px;">Ohio's <span class="green">Premier</span> Authority</h2>
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+    <section class="premier-services-section reveal" style="padding: 60px 0;">
+        <div class="container">
+            <div class="services-console">
+                <div class="grid">
+                    <div style="grid-column: span 5; text-align: center;">
+                        <img src="assets/images/all_exterior_solutions_transparent_logo.png" style="max-width: 220px; margin-bottom: 20px;">
+                        <h2 style="font-size: 2rem; margin-bottom: 20px;">Ohio's <span class="green">Premier</span> Authority</h2>
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div style="grid-column: span 7; display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;" class="services-grid">
+                        <div class="service-column"><h4>Roofing</h4><ul class="service-list"><li>Repair</li><li>Replacement</li></ul></div>
+                        <div class="service-column"><h4>Siding</h4><ul class="service-list"><li>Vinyl</li><li>Fiber Cement</li></ul></div>
+                        <div class="service-column"><h4>Gutters</h4><ul class="service-list"><li>Seamless</li><li>Repair</li></ul></div>
+                        <div class="service-column"><h4>Windows</h4><ul class="service-list"><li>Efficient</li><li>Custom</li></ul></div>
+                    </div>
                 </div>
             </div>
-            <div style="grid-column: span 7; display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;" class="services-grid">
-                <div class="service-column"><h4>Roofing</h4><ul class="service-list"><li>Replacement</li><li>Repair</li></ul></div>
-                <div class="service-column"><h4>Siding</h4><ul class="service-list"><li>Vinyl</li><li>Fiber Cement</li></ul></div>
-                <div class="service-column"><h4>Gutters</h4><ul class="service-list"><li>Seamless</li><li>Cleaning</li></ul></div>
-                <div class="service-column"><h4>Windows</h4><ul class="service-list"><li>Efficient</li><li>Custom</li></ul></div>
-            </div>
         </div>
-    </div></div></section>
+    </section>
 
     <section style="padding: 60px 0; text-align: center;" class="reveal">
         <div class="container">
             <img src="assets/images/award-winning.png" alt="Award" class="award-logo">
-            <h2>America's #1 Choice</h2>
+            <h2 style="font-size: 2.5rem; margin-top: 15px;">America's #1 Choice</h2>
         </div>
     </section>
 
-    <section class="final-cta reveal"><div class="container"><div class="form-full-wrap" style="max-width: 800px; margin: 0 auto; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 24px; padding: 30px;">
-        <h2 style="text-align:center; margin-bottom: 20px;">Protect Your Home Forever</h2>
-        <iframe src="https://link.jvrtechllc.com/widget/form/cU3ghcJBJdzmzrSbkB2g" style="width:100%;height:650px;border:none;" id="form-bottom" title="gutter helmet"></iframe>
-    </div></div></section>
+    <section class="final-cta reveal" style="padding: 40px 0;">
+        <div class="container">
+            <div class="form-full-wrap" style="max-width: 800px; margin: 0 auto; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 24px; padding: 30px;">
+                <h2 style="text-align:center; margin-bottom: 20px;">Secure Your Home Forever</h2>
+                <iframe src="https://link.jvrtechllc.com/widget/form/cU3ghcJBJdzmzrSbkB2g" style="width:100%;height:650px;border:none;" id="form-bottom" title="gutter helmet"></iframe>
+            </div>
+        </div>
+    </section>
 
     <footer style="text-align: center; padding: 40px 0; color: #475569; font-size: 0.8rem;"><p>&copy; 2026 All Exterior Solutions | Exclusive Dealer</p></footer>
 
