@@ -57,7 +57,7 @@
         h1, h2, h3, h4 { font-family: 'Outfit'; line-height: 1; }
         .green { color: var(--aes-green); text-shadow: 0 0 30px var(--aes-green-glow); }
 
-        /* === NAV BAR === */
+        /* === NAV BAR WITH GLOWING BLUE CAPSULE === */
         header {
             position: fixed; top: 0; width: 100%; z-index: 2000;
             padding: 15px 0;
@@ -164,47 +164,33 @@
         .reveal { opacity: 0; transform: translateY(50px); transition: all 1s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* =========================================
-           CRITICAL MOBILE FIXES (Screnshots Analyze)
-           ========================================= */
+        /* === MOBILE FIXES (Analysis Applied) === */
         @media (max-width: 768px) {
             .grid { grid-template-columns: 1fr !important; text-align: center; gap: 40px; }
+            h2 { font-size: 2.2rem !important; }
             
-            /* Header Fixes (Stop overlap) */
-            .logo-img { height: 35px !important; }
-            .dealer-capsule { padding: 5px 12px !important; }
-            .dealer-capsule p:first-child { font-size: 0.5rem !important; }
-            .dealer-title-glow { font-size: 0.65rem !important; }
-
-            /* Hero Fixes */
-            .hero { padding-top: 100px !important; min-height: auto !important; background-attachment: scroll !important; }
-            .hero-text h1 { font-size: 2.2rem !important; margin-bottom: 15px; }
-            .hero-text p { font-size: 1rem !important; padding: 0 10px; }
-            .hero-form-console { margin: 40px auto 0 !important; width: 100%; min-height: 850px !important; }
-
-            /* Grid Content Fixes */
-            .comparison-section .grid div { grid-column: span 12 !important; }
-            .protection-section .grid div { grid-column: span 12 !important; }
-            .services-console .grid div { grid-column: span 12 !important; }
-
-            /* Centering specific items from screenshots */
-            h2 { font-size: 2.2rem !important; text-align: center !important; }
-            .badge { margin: 0 auto 15px !important; display: table !important; }
+            /* Fix for imagecut cutoff - increase vertical space */
+            .protection-section { padding: 80px 0 !important; }
+            .protection-diagram { margin-bottom: 50px !important; padding: 0 10px !important;}
             
-            /* List centering for "4 Season" section */
+            /* Center the Authority section and prevent text cut-off */
+            .premier-services-section { padding: 60px 0 !important; }
+            .services-console { padding: 40px 20px !important; text-align: center !important; }
+            .services-grid { grid-template-columns: 1fr !important; gap: 30px !important; }
+            .service-column h4 { margin-bottom: 15px !important; }
+            .services-console h2 { margin: 0 auto 30px auto !important; max-width: 90%; }
+            .services-console img { max-width: 200px !important; }
+
+            /* Fix callout list alignment on mobile */
             ul[style*="list-style:none"] li { 
                 justify-content: flex-start !important; 
                 text-align: left !important; 
                 max-width: 320px; 
-                margin-left: auto; 
-                margin-right: auto;
+                margin: 0 auto 20px auto !important;
             }
-
-            /* Premier Authority Section centering */
-            .premier-services-section h2 { margin-bottom: 40px !important; }
-            .services-grid { grid-template-columns: 1fr !important; }
-            .service-column { margin-bottom: 30px; }
-            .services-console { padding: 40px 20px !important; }
+            
+            .hero-text h1 { font-size: 2.5rem !important; }
+            .logo-img { height: 40px !important; }
         }
     </style>
 </head>
@@ -237,38 +223,9 @@
         </div>
     </section>
 
-    <section class="container">
-        <div class="icon-grid reveal">
-            <div class="icon-card">
-                <div class="aura-icon">0°</div>
-                <h3>Zero Maintenance</h3>
-                <p style="color: #94A3B8; margin-top:15px;">Engineered to handle the heaviest debris loads without ever needing a manual cleaning.</p>
-            </div>
-            <div class="icon-card">
-                <div class="aura-icon">∞</div>
-                <h3>Triple Lifetime Warranty</h3>
-                <p style="color: #94A3B8; margin-top:15px;">A permanent, transferable guarantee that protects your home for generations.</p>
-            </div>
-            <div class="icon-card">
-                <div class="aura-icon">100</div>
-                <h3>Surface Tension Max</h3>
-                <p style="color: #94A3B8; margin-top:15px;">Utilizing physics to wrap water into the gutter while jettisoning leaves to the ground.</p>
-            </div>
-        </div>
-    </section>
+    <section class="container"><div class="icon-grid reveal"><div class="icon-card"><div class="aura-icon">0°</div><h3>Zero Maintenance</h3><p style="color: #94A3B8; margin-top:15px;">Engineered to handle the heaviest debris loads without ever needing a manual cleaning.</p></div><div class="icon-card"><div class="aura-icon">∞</div><h3>Triple Lifetime Warranty</h3><p style="color: #94A3B8; margin-top:15px;">A permanent, transferable guarantee that protects your home for generations.</p></div><div class="icon-card"><div class="aura-icon">100</div><h3>Surface Tension Max</h3><p style="color: #94A3B8; margin-top:15px;">Utilizing physics to wrap water into the gutter while jettisoning leaves to the ground.</p></div></div></section>
 
-    <section class="comparison-section">
-        <div class="container grid">
-            <div style="grid-column: span 7;" class="reveal">
-                <img src="assets/images/before_after.png" alt="Before and After Comparison" class="comparison-img">
-            </div>
-            <div style="grid-column: span 5;" class="reveal">
-                <span class="badge">Visual Proof</span>
-                <h2 style="font-size: 3.5rem; margin-bottom: 25px;">The Reality of <span class="green">Neglect.</span></h2>
-                <p>Foundation damage starts at the gutters. Fix the system, not the symptoms.</p>
-            </div>
-        </div>
-    </section>
+    <section class="comparison-section"><div class="container grid"><div style="grid-column: span 7;" class="reveal"><img src="assets/images/before_after.png" class="comparison-img"></div><div style="grid-column: span 5;" class="reveal"><span class="badge">Visual Proof</span><h2 style="font-size: 3.5rem; margin-bottom: 25px;">The Reality of <span class="green">Neglect.</span></h2><p>Foundation damage starts at the gutters. Fix the system, not the symptoms.</p></div></div></section>
 
     <section class="protection-section">
         <div class="container grid">
@@ -312,21 +269,9 @@
         <div class="container"><img src="assets/images/award.jpg" alt="America's #1 Choice" class="award-logo"><h2 style="font-size: 3rem; margin-bottom: 20px;">America's #1 Choice</h2></div>
     </section>
 
-    <section class="final-cta reveal">
-        <div class="container">
-            <div class="form-full-wrap">
-                <div style="text-align: center; margin-bottom: 40px;">
-                    <h2 style="font-size: 2.5rem; margin-bottom: 10px;">Protect Your Home Forever</h2>
-                    <p style="color: var(--aes-blue); font-weight: 800; letter-spacing: 1px;">FINAL ASSESSMENT REQUEST</p>
-                </div>
-                <iframe src="https://link.jvrtechllc.com/widget/form/cU3ghcJBJdzmzrSbkB2g" style="width:100%;height:650px;border:none;border-radius:12px" id="inline-secondary-cU3ghcJBJdzmzrSbkB2g" data-form-id="cU3ghcJBJdzmzrSbkB2g" title="gutter helmet"></iframe>
-            </div>
-        </div>
-    </section>
+    <section class="final-cta reveal"><div class="container"><div class="form-full-wrap"><div style="text-align: center; margin-bottom: 40px;"><h2 style="font-size: 2.5rem; margin-bottom: 10px;">Protect Your Home Forever</h2><p style="color: var(--aes-blue); font-weight: 800; letter-spacing: 1px;">FINAL ASSESSMENT REQUEST</p></div><iframe src="https://link.jvrtechllc.com/widget/form/cU3ghcJBJdzmzrSbkB2g" style="width:100%;height:650px;border:none;border-radius:12px" id="inline-secondary-cU3ghcJBJdzmzrSbkB2g" data-form-id="cU3ghcJBJdzmzrSbkB2g" title="gutter helmet"></iframe></div></div></section>
 
-    <footer style="text-align: center; padding: 80px 0; color: #475569; font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.05);">
-        <p>&copy; 2026 All Exterior Solutions | Exclusive Gutter Helmet Dealer for NW Ohio</p>
-    </footer>
+    <footer style="text-align: center; padding: 80px 0; color: #475569; font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.05);"><p>&copy; 2026 All Exterior Solutions | Exclusive Gutter Helmet Dealer for NW Ohio</p></footer>
 
     <script src="https://link.jvrtechllc.com/js/form_embed.js"></script>
     <script>
